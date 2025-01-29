@@ -1,6 +1,6 @@
 ---
 title: QTM 350 - Data Science Computing
-subtitle: "Lecture 04: More on the Command Line"
+subtitle: "Lecture 04: More About the Command Line"
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
@@ -37,8 +37,10 @@ editor:
 :::
 
 :::{.column width="50%"}
+:::{style="text-align: center; margin-top: -40px;"}
 ![](figures/bash.png)
 ![](figures/linux-bash.png)
+:::
 :::
 :::
 :::
@@ -58,7 +60,9 @@ editor:
 :::
 
 ::: {.column width="50%"}
+:::{style="text-align: center; margin-top: -10px;"}
 ![](figures/time.jpg){width="250%"}
+:::
 :::
 :::
 :::
@@ -79,11 +83,14 @@ mkdir testing
 ```{bash, eval=FALSE, echo=TRUE}
 mkdir -p testing02/subdir
 ```
+
+- The `-p` flag can create complex directory trees in one command, and it won't throw an error if the directory already exists
 :::
 
 :::{.column width="50%"}
 - We use `touch` to create (empty) files
 - If the file(s) already exist, `touch` changes a file's "Access", "Modify" and "Change" timestamps to the current time and date
+- No change to the file's contents is made
 - To add some files to our new directory, we do:
 
 ```{bash, eval=FALSE, echo=TRUE}
@@ -233,7 +240,7 @@ ls figures/tim??.jpg
 :::{style="margin-top: 30px; font-size: 22px;"}
 - The last command to mention is `find`
 - This can be used to locate files and directories based on a variety of criteria; from pattern matching to object properties
-- The basic syntax is `find path -options`
+- The basic syntax is `find path -options expression`
 - For example, to find all files in the current directory with the extension `.qmd`, we would do:
 
 ```{bash, echo=TRUE}
@@ -388,7 +395,7 @@ rm -rf project && rm -rf book
 ## Counting text: `wc`
 
 :::{style="margin-top: 30px; font-size: 22px;"}
-- You can use the `wc` command to count:
+- You can use the `wc` command to count, respectively:
   - The lines of text
   - The number of words
   - The number of characters
@@ -396,6 +403,8 @@ rm -rf project && rm -rf book
 - Let's demonstrate with a text file containing all of Shakespeare's Sonnets. [Source](http://www.gutenberg.org/cache/epub/1041/pg1041.txt).
 
 ```{bash, echo=TRUE}
+## Download the file
+# curl -o sonnet.txt https://raw.githubusercontent.com/danilofreire/qtm350/main/lectures/lecture-04/sonnets.txt
 wc sonnets.txt
 ```
 
@@ -403,7 +412,7 @@ The character count is actually higher than we'd get if we count by hand, becaus
 :::
 
 :::{.callout-note}
-Download the `sonnet.txt` file at <https://github.com/danilofreire/qtm350/blob/main/lectures/lecture-04/sonnets.txt>. Click on "Download raw file".
+Download the `sonnet.txt` file at <https://github.com/danilofreire/qtm350/blob/main/lectures/lecture-04/sonnets.txt>. Click on "Download raw file". Or use `curl` as shown in the code above. [Download curl here](https://curl.se/download.html).
 :::
 
 ## Read text: `cat`
@@ -511,14 +520,14 @@ grep -rl "pasta" ./meals/
 
 :::{style="margin-top: 30px; font-size: 24px;"}
 - Now it's your turn to practice with text files!
-- Download the text file with Shakespeare's Sonnets from [our repository](https://github.com/danilofreire/qtm350/blob/main/lectures/lecture-04/sonnets.txt)
+- Download the text file with Shakespeare's Sonnets from [our repository](https://github.com/danilofreire/qtm350/blob/main/lectures/lecture-04/sonnets.txt) or use `curl` as shown before
 - Go to the terminal and navigate to the directory where you saved the file
 - Then try to do the following:
   - Find all lines in sonnets.txt that contain the word "time" 
   - View the last 20 lines in sonnets.txt
   - Count the number of lines and words in sonnets.txt
   - [Tricky question:]{.alert} Find all lines in sonnets.txt that [start]{.alert} with "and" 
-  - [Super tricky question:] Find all lines in sonnets.txt that start with "and" _and_ "And"  [[Appendix 02]{.button}](#sec-appendix-02)
+  - [Super tricky question:]{.alert} Find all lines in sonnets.txt that start with "and" _and_ "And"  [[Appendix 02]{.button}](#sec-appendix-02)
 :::
 
 ## Manipulate text: `sed`
@@ -535,7 +544,7 @@ sed 's/Project Gutenberg/Project Googleberg/g' sonnets.txt | head -n 5
 
 - To save the changes to the file, you can use the `-i` flag:
   - `sed -i 's/Project Gutenberg/Project Googleberg/g' sonnets.txt`
-  - **Warning**: Be careful with this command, as it will overwrite the original file!
+  - [Warning]{.alert}: Be careful with this command, as it will [overwrite the original file!]{.alert}
 :::
 
 :::{.column width="50%"}
@@ -804,26 +813,20 @@ We didn't cover many things in detail:
 :::
 :::
 
-## Additional material
+## Additional materials
 
-:::{style="margin-top: 30px;"}
+:::{style="margin-top: 30px; font-size: 26px;"}
 If you want to dig deeper, check out
 
--   [The Unix Shell](http://swcarpentry.github.io/shell-novice/) (Software Carpentery)
-
--   [The Unix Workbench](https://seankross.com/the-unix-workbench/) (Sean Kross)
-
--   [Data Science at the Command Line](https://www.datascienceatthecommandline.com/) (Jeroen Janssens)
-
--   [Effective Shell](https://effective-shell.com/) (Dave Kerr)
-
--   [Efficient Way To Process Large Text/Log Files Using Awk With Python](https://techblogs.42gears.com/efficient-way-to-process-large-text-log-files-usin-wpython/)
-
--   [Using AWK and R to parse 25tb](https://livefreeordichotomize.com/posts/2019-06-04-using-awk-and-r-to-parse-25tb/) (Nick Strayer)
-
--   [`./jq`](https://jqlang.github.io/jq/)
-
--   [`awk`](https://en.wikipedia.org/wiki/AWK)
+- [The Unix Shell](http://swcarpentry.github.io/shell-novice/) (Software Carpentery)
+- [The Unix Workbench](https://seankross.com/the-unix-workbench/) (Sean Kross)
+- [Data Science at the Command Line](https://www.datascienceatthecommandline.com/) (Jeroen Janssens)
+- [Effective Shell](https://effective-shell.com/) (Dave Kerr)
+- [Efficient Way To Process Large Text/Log Files Using Awk With Python](https://techblogs.42gears.com/efficient-way-to-process-large-text-log-files-usin-wpython/)
+- [Using AWK and R to parse 25tb](https://livefreeordichotomize.com/posts/2019-06-04-using-awk-and-r-to-parse-25tb/) (Nick Strayer)
+- [`./jq`](https://jqlang.github.io/jq/)
+- [`awk`](https://en.wikipedia.org/wiki/AWK)
+- [`neovim`](https://neovim.io/)
 :::
 
 ## Summary
