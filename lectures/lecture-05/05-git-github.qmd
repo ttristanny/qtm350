@@ -39,7 +39,38 @@ editor:
 :::
 
 :::{.column size="50%"}
+:::{style="text-align: center;"}
 ![](figures/home.jpg){width="80%"}
+:::
+:::
+:::
+:::
+
+## Recap of our last lecture
+### Regular expressions
+
+:::{style="margin-top: 30px; font-size: 21px;"}
+:::{.colunms}
+:::{.column size="50%"}
+- Regular expressions are useful to search for patterns in text
+- They are used in many programming languages and tools, and you can use them in the command line with `grep`
+- The basic syntax includes:
+  - `.`: any character
+  - `^`: start of a line
+  - `$`: end of a line
+  - `[]`: a set of characters
+  - `*`: zero or more of the preceding character
+  - `+`: one or more of the preceding character
+  - `?`: zero or one of the preceding character
+  - `|`: or
+  - `()`: grouping
+:::
+
+:::{.column size="50%"}
+:::{style="text-align: center; margin-top: -40px;"}
+![](figures/regex.png){width="80%"}
+![](figures/regex.webp){width="80%"}
+:::
 :::
 :::
 :::
@@ -60,8 +91,10 @@ editor:
 :::
 
 :::{.column size="50%"}
+:::{style="text-align: center; margin-top: -40px;"}
 ![](figures/git.png)
 ![](figures/github.png)
+:::
 :::
 :::
 :::
@@ -172,7 +205,9 @@ For R projects for example:
 :::
 
 :::{.column size="50%"}
+:::{style="text-align: center;"}
 ![](figures/rproject-setup.png){width="300"}
+:::
 :::
 :::
 :::
@@ -196,7 +231,9 @@ For R projects for example:
 :::
 
 :::{.column size="50%"}
-![](figures/file_management.png){width="70%"}
+:::{style="text-align: center;"}
+![](figures/file_management.png){width="65%"}
+:::
 :::
 :::
 :::
@@ -477,7 +514,7 @@ Check out [these setup instructions](https://swcarpentry.github.io/git-novice/02
 - We will also learn how to create branches, merge them, and resolve conflicts.
 
 :::{.fragment .fade-in}
-:::{style="text-align: center; font-size: 30px;"}
+:::{style="text-align: center; font-size: 50px;"}
 [Let's do it!]{.alert} 🚀
 :::
 :::
