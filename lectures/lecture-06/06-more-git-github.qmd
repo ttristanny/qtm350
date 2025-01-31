@@ -102,7 +102,7 @@ Today we will cover
 
 ## Pushing changes to a remote repository
 
-:::{style="margin-top: 30px; font-size: 21px;"}
+:::{style="margin-top: 30px; font-size: 28px;"}
 - Let's go back to our `my-project` local repository
 - Check the last commit with `git log`
 - Now, let's `push` our changes to a remote repository on GitHub
@@ -445,7 +445,7 @@ More about branches [here](https://git-scm.com/book/en/v2/Git-Branching-Branches
 
 ## Forking
 
-:::{style="margin-top: 30px; font-size: 23px;"}
+:::{style="margin-top: 30px; font-size: 28px;"}
 - Forking from GitHub is easy, but it requires a few steps
 - Forking [is not part of Git]{.alert}, but it is part of GitHub
   - That's why you cannot do it from the command line!
