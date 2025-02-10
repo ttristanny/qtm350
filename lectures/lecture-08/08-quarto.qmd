@@ -19,48 +19,6 @@ editor:
 
 # Welcome back! 😊 {background-color="#2d4563"}
 
-# Some comments on quiz 01 📚 {background-color="#2d4563"}
-
-## Quiz 01
-### What do you think of it? 
-
-:::{style="margin-top: 30px; font-size: 24px;"}
-:::{.columns}
-:::{.column width="50%"}
-- How did you do? What did you find challenging, if anything?
-- Too long, too short, too easy, too hard?
-- What did you like about it (if anything 😅)?
-- Feedback is always welcome! 🙏
-:::
-
-:::{.column width="50%"}
-![](figures/quiz-01.png){width="1000px"}
-:::
-:::
-:::
-
-## Some comments on quiz 01
-
-:::{style="margin-top: 30px; font-size: 24px;"}
-- The quiz was designed to be a little challenging, but not impossible
-- All but the bonus questions were based on the material covered in class (all commands were in the slides)
-- The main idea behind it was to simulate a real-world scenario where you have to use the CLI and git to collaborate with others
-- Now you already know how to interact with git and GitHub, and [what you did on Monday covers the vast majority of the work you'll have to do with git in the workplace]{.alert}
-- Answers [here](https://github.com/danilofreire/qtm350-quiz01/blob/main/answers.md)
-:::
-
-## Checking `git diff`
-
-:::{style="margin-top: 30px; font-size: 24px;"}
-![](figures/quiz-01-grades.png)
-:::
-
-## Checking `git diff`
-
-:::{style="margin-top: 30px; font-size: 24px;"}
-![](figures/quiz-01-grades-2.png)
-:::
-
 ## Today's plan 📅 
 
 :::{style="margin-top: 30px; font-size: 24px;"}
@@ -295,35 +253,7 @@ choco install quarto
 
 ## Writing with your favourite editor {.smaller}
 
-```{r}
-#| classes: panel-tabset
-#| output: asis
-pages <- sprintf(
-  "https://quarto.org/docs/get-started/hello/%s",
-  c(
-    "vscode.html",
-    "jupyter.html",
-    "rstudio.html",
-    "neovim.html",
-    "text-editor.html"
-  )
-)
-for (ipage in pages) {
-  file <- paste0(
-    "figures/quarto-get-started-",
-    sub("\\.html$", ".png", basename(ipage))
-  )
-  webshot2::webshot(
-    url = ipage,
-    file = file,
-    vwidth = 1920 * 1.2,
-    vheight = 1080 * 1,
-    cliprect = "viewport"
-  )
-  cat("\n\n##", toupper(sub("\\.html$", "", basename(ipage))))
-  cat(sprintf("\n\n[![](%s){fig-alt='Screenshot of %s webpage'}](%s)", file, ipage, ipage))
-}
-```
+![](figures/editors.png){width="100%"}
 
 ::: {.attribution}
 <https://quarto.org/>
@@ -652,29 +582,9 @@ quarto render file.qmd --to html
 ## Writing using the Visual Editor
 
 :::{style="margin-top: 30px; font-size: 24px;"}
-```{r}
-#| classes: panel-tabset
-#| output: asis
-pages <- c(
-  "vscode" = "https://quarto.org/docs/visual-editor/vscode/",
-  "rstudio" = "https://quarto.org/docs/visual-editor/"
-)
-for (ipage in names(pages)) {
-  file <- sprintf(
-    "figures/quarto-visual-editor-%s.png",
-    ipage
-  )
-  webshot2::webshot(
-    url = pages[[ipage]],
-    file = file,
-    vwidth = 1920 * 1.2,
-    vheight = 1080 * 1,
-    cliprect = "viewport"
-  )
-  cat("\n\n##", toupper(ipage))
-  cat(sprintf("\n\n[![](%s){fig-alt='Screenshot of %s webpage'}](%s)", file, pages[[ipage]], pages[[ipage]]))
-}
-```
+![](figures/editor222.png)
+
+<https://quarto.org/docs/visual-editor/vscode/>
 :::
 
 ## Contents of a Quarto document
