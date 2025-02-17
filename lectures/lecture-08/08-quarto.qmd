@@ -726,6 +726,6 @@ Put two plots side by side:
 - [Beautiful reports and presentations with Quarto (video - worth watching)](https://www.youtube.com/live/hbf7Ai3jnxY?si=3LDtD38oFj8NCu21)
 :::
 
-# Have a great weekend! 🎉 {background-color="#2d4563"}
+# Have a great week! 🎉 {background-color="#2d4563"}
 
 
