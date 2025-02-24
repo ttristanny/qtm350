@@ -580,7 +580,7 @@ Source: <https://github.com/ImperialCollegeLondon/RCDS-introduction-to-AI-assist
  - `/doc`: This will ask Copilot to generate documentation for the selected code. This will suggest changes in the editor 
  - `/explain`: This will ask Copilot to explain the selected code. It will do this in the Copilot Chat extension
  -  `/fix` will look for problems in the selected code and suggest fixes for them in the editor.
- -  `/test` will ask Copilot to generate tests for the selected code. This will suggest changes in the editor, which may include creating a new file for the tests
+ -  `/tests` will ask Copilot to generate tests for the selected code. This will suggest changes in the editor, which may include creating a new file for the tests
 
 - You can also find these options by right-clicking a highlighted piece of code, and going into the Copilot menu
 :::
