@@ -160,7 +160,7 @@ Source: [Taulli (2024)](https://www.oreilly.com/library/view/ai-assisted-program
 - The data collected by AI firms are huge and include [many languages and styles]{.alert}
 - An overlooked part of the training process is the [data cleaning and preprocessing]{.alert}: removing duplicates, correcting errors, and standardising formats
 - [Tokenisation](https://en.wikipedia.org/wiki/Tokenization_(lexical_analysis)) is the process of breaking text into smaller units called tokens, and each token is assigned a unique ID
-  - For example, "`Chatbots are helpful in 2024!`" = `["Chat", "bots", "are", "help", "ful", "in", "2024", "!"]`
+  - For example, "`Chatbots are helpful in 2025!`" = `["Chat", "bots", "are", "help", "ful", "in", "2025", "!"]`
 - The main objective during training is for the model to [predict the next token in a sequence]{.alert} based on the tokens that come before it
 - This allows the model to [learn language patterns without needing labeled data]{.alert}
 :::
