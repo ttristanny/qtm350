@@ -576,7 +576,7 @@ Source: <https://github.com/ImperialCollegeLondon/RCDS-introduction-to-AI-assist
 
 ## In-Editor Prompting
 
-:::{style="margin-top: 30px; font-size: 21px;"}
+:::{style="margin-top: 30px; font-size: 24px;"}
 - There are a few standard commands that are available for prompting Copilot to do something when you have a piece of code selected
 - You can access these in the `Ctrl + I` interface by typing a forward slash, then the name of the command. These are:
  - `/doc`: This will ask Copilot to generate documentation for the selected code. This will suggest changes in the editor 
@@ -585,41 +585,132 @@ Source: <https://github.com/ImperialCollegeLondon/RCDS-introduction-to-AI-assist
  -  `/test` will ask Copilot to generate tests for the selected code. This will suggest changes in the editor, which may include creating a new file for the tests
 
 - You can also find these options by right-clicking a highlighted piece of code, and going into the Copilot menu
-
-- We'll look at using some of these tools later in the course
 :::
 
 ## Copilot Chat
 
 :::{style="margin-top: 30px; font-size: 21px;"}
 - You can also chat to Copilot in a manner closer to that of a chatbot like ChatGPT
-- To do this, you can open the chat window by clicking on the chat icon in the activity bar at the left of the screen
+- To do this, you can open the chat window by clicking on the chat icon in the activity bar at the top right of the screen
 
-![](figures/copilot_chat_icon.png){width="5%"}
-
-- You can type a message to Copilot in the window and it will respond, including suggesting code snippets where relevant
-- Copilot chat is limited to discussing programming
-- If Copilot produces a code snippet that you want to use, you can hover over the snippet and click the "Copy" button to copy it to the clipboard, click the "Insert at Cursor" button to insert at the location of the cursor in the editor, or insert it into a new file or the currently active terminal
-
-![](figures/chat_inserting_code.png){width="65%"}
+:::{style="text-align: center;"}
+![](figures/copilot_chat_icon.png){width="20%"}
 :::
 
-## Exercise
-### You can work on this exercise on your own time
+- You can type a message to Copilot in the window and it will respond, including suggesting code snippets where relevant
+- If Copilot produces a code snippet that you want to use, you can hover over the snippet and click the "Copy" button to copy it to the clipboard, click the "Insert at Cursor" button to insert at the location of the cursor in the editor, or insert it into a new file or the currently active terminal
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-- Experiment with some of the ways of using Copilot that we have discussed in this notebook. Include the following activities:
-  - Use the Ctrl + I interface to ask Copilot to generate a function from scratch.
-  - Use the Ctrl + I interface to ask Copilot a question about an existing piece of code.
-  - Use autocomplete to complete a function that you have started writing.
-  - Ask Copilot Chat a general question about programming.
-  - Ask Copilot Chat a question about a specific piece of code.
-  - Insert some code produced by Copilot Chat into the code cell.
+:::{style="text-align: center;"}
+![](figures/chat_inserting_code.png){width="65%"}
+:::
+:::
+
+## Generate documentation
+
+:::{style="margin-top: 30px; font-size: 21px;"}
+- You can ask Copilot to generate documentation for a piece of code by using the `/doc` command
+
+:::{style="text-align: center;"}
+![](figures/doc_command.png){width="100%"}
+:::
+:::
+
+## Use `/tests` to generate tests
+
+:::{style="margin-top: 30px; font-size: 21px;"}
+- Another very useful command is `/test`
+- Use `/tests` on a function or snippet, and Copilot Chat will generate relevant test cases
+
+:::{style="text-align: center;"}
+![](figures/tests.png){width="100%"}
+:::
+:::
+
+## Using `@github` and `#web` to get more specific results
+
+:::{style="margin-top: 30px; font-size: 23px;"}
+:::{.columns}
+:::{.column width="50%"}
+- Copilot also has the `@github` command that allows you to [interact with any repository online](https://github.blog/ai-and-ml/github-copilot/whats-new-with-github-copilot-july-2024/)
+- This means that you can ask questions about files, folders, structures, and functions in any repository on GitHub
+- It is powered by [Bing](https://www.bing.com/), and it can also search the web for information
+- You can use the `#web` command to ask Copilot to search the web for information
+- This can be useful if you are looking for information on a specific topic, or if you want to find out more about a particular function or library
+:::
+
+:::{.column width="50%"}
+:::{style="text-align: center; margin-top: -30px;"}
+![](figures/github_search.png){width="70%"}
+:::
+:::
+:::
+:::
+
+## Using `@github` and `#web` to get more specific results
+
+:::{style="margin-top: 30px; font-size: 23px; text-align: center;"}
+:::{.columns}
+:::{.column width="33%"}
+![](figures/github_search01.png){width="80%"}
+:::
+
+:::{.column width="33%"}
+![](figures/github_search02.png){width="70%"}
+:::
+
+:::{.column width="33%"}
+![](figures/github_search03.png){width="70%"}
+:::
+:::
+:::
+
+# GitHub Codespaces 🖥️ {background-color="#2d4563"}
+
+## GitHub Codespaces
+### VS Code in the cloud
+
+:::{style="margin-top: 30px; font-size: 26px;"}
+- GitHub has recently released [GitHub Codespaces](https://github.com/codespaces), which allows you to run Visual Studio Code in your browser for free (up to 120 or 180 hours per month, depending on your plan)
+- This is a great way to use Copilot if you don't have a powerful computer, or if you want to work on a project from a different device
+- It also integrates with GitHub, so you can easily access your repositories from Codespaces
+- You can also use Codespaces to collaborate with others on a project, as you can share a Codespace with other GitHub users
+- Codespaces is still in beta, but it works fine! 😊
+- Read more about it here: <https://docs.github.com/en/codespaces/overview>
+:::
+
+## GitHub Codespaces
+
+:::{style="margin-top: 30px; font-size: 26px; text-align: center;"}
+![](figures/codespaces.png){width="80%"}
+:::
+
+## GitHub Codespaces
+
+:::{style="margin-top: 30px; font-size: 26px; text-align: center;"}
+![](figures/codespaces01.png){width="80%"}
+:::
+
+## GitHub Codespaces
+
+:::{style="margin-top: 30px; font-size: 26px; text-align: center;"}
+![](figures/codespaces02.png){width="80%"}
+:::
+
+## GitHub Codespaces
+
+:::{style="margin-top: 30px; font-size: 26px; text-align: center;"}
+![](figures/codespaces03.png){width="80%"}
+:::
+
+## GitHub Codespaces
+
+:::{style="margin-top: 30px; font-size: 26px; text-align: center;"}
+![](figures/codespaces04.png){width="80%"}
 :::
 
 # That's all for today! 🎉 {background-color="#2d4563"}
 
-# Next time we will learn what Copilot can do for us! 🤖 {background-color="#2d4563"}
+# Next time we will learn how to use APIs and other AI tools! 🤖 {background-color="#2d4563"}
 
 # Have a great day! 😊 {background-color="#2d4563"}
 
