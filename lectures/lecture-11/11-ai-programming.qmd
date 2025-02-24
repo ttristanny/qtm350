@@ -616,7 +616,6 @@ Source: <https://github.com/ImperialCollegeLondon/RCDS-introduction-to-AI-assist
 ## Use `/tests` to generate tests
 
 :::{style="margin-top: 30px; font-size: 21px;"}
-- Another very useful command is `/test`
 - Use `/tests` on a function or snippet, and Copilot Chat will generate relevant test cases
 
 :::{style="text-align: center;"}
