@@ -344,6 +344,24 @@ More about [virtualisation](https://www.redhat.com/en/topics/virtualization/what
 :::
 :::
 
+## What is middleware?
+
+:::{style="margin-top: 30px; font-size: 26px;"}
+:::{.columns}
+:::{.column width="50%"}
+- Middleware is software that [connects two separate applications]{.alert}
+- This is software we rarely see, but which is [essential for the functioning of the internet]{.alert}
+- For instance, software than handles [authentication, authorisation, and encryption]{.alert}, drivers that [connect to databases]{.alert}, and software that [handles messaging]{.alert}
+- [Amazon SQS](https://aws.amazon.com/sqs), [Apache Kafka](https://kafka.apache.org), and [RabbitMQ](https://www.rabbitmq.com) are examples of middleware
+:::
+
+:::{.column width="50%"}
+:::{style="text-align: center;"}
+![](figures/middleware.avif){width=100%}
+:::
+:::
+:::
+:::
 
 ## The Big Three ☁️
 
@@ -584,9 +602,7 @@ Source: [AWS](https://aws.amazon.com/autoscaling)
 
 ## Managing an AWS account
 
-:::{style="margin-top: 30px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="50%"}
+:::{style="margin-top: 30px; font-size: 25px;"}
 - The first thing you should do is [to use a billing alarm]{.alert}
   - You can set up a billing alarm to notify you when your bill exceeds a certain amount
   - This is very important, as costs can add up quickly
@@ -599,15 +615,13 @@ Source: [AWS](https://aws.amazon.com/autoscaling)
 - Choose [Create budget]{.alert}, choose a [Zero spend budget]{.alert} template, add your email, then click [Create budget]{.alert}
 :::
 
-:::{.column width="50%"}
-:::{style="text-align: center;"}
+## Managing an AWS account
+
+:::{style="margin-top: 30px; font-size: 20px; text-align: center;"}
 ![](figures/billing.png){width=80%}
 :::
-:::
-:::
-:::
 
-# Create an audio transcription with Amazon Transcribe 🎤 {background-color="#2d4563"}
+# Amazon Transcribe 🎤 {background-color="#2d4563"}
 
 ## Audio transcription at scale
 
