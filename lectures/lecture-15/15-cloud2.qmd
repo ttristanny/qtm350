@@ -140,7 +140,7 @@ editor:
   - Forwarding ports with SSH
   - Running Jupyter on a remote server
 
-- Activity 02: [Data analysis on the cloud]{.alert}
+- Activity 02: [Data analysis on the cloud]{.alert} (time permitting)
   - Creating a weather dataset and uploading it to an EC2 instance
   - Analysing the data with Python and downloading the results
 :::
