@@ -1,6 +1,6 @@
 ---
 title: QTM 350 - Data Science Computing
-subtitle: Lecture 17 - Introduction to SQL
+subtitle: Lecture 18 - Introduction to SQL
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
@@ -9,7 +9,7 @@ format:
   clean-revealjs:
     self-contained: true
     code-overflow: wrap
-    footer: "[Introduction to SQL](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-17/17-introduction-sql.html)"
+    footer: "[Introduction to SQL](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-18/18-introduction-sql.html)"
 transition: slide
 transition-speed: default
 scrollable: true
@@ -136,7 +136,7 @@ sqlite3 --version
 - Windows users can download the SQLite precompiled binaries from the [SQLite website](https://www.sqlite.org/download.html). Download the files that have the `sqlite3` DLL and the command-line shell (`sqlite-dll...` and `sqlite-tools...`)
 - Then follow these steps:
   - Create a folder `C:\>sqlite` and unzip the files in this folder, which will give you `sqlite3.def`, `sqlite3.dll` and `sqlite3.exe` files 
-  - Add `C:\>sqlite` in your `PATH` environment variable and finally go to the command prompt and issue `sqlite3` command, which should display the following result
+  - Add `C:\>sqlite` in your `PATH` environment variable and go to the command prompt and issue `sqlite3` command, which should display the following result
 
 ```{verbatim}
 C:\>sqlite3
