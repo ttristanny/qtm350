@@ -1,6 +1,6 @@
 ---
 title: QTM 350 - Data Science Computing
-subtitle: Lecture 18 - Introduction to SQL
+subtitle: Lecture 17 - Introduction to SQL
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
@@ -9,7 +9,7 @@ format:
   clean-revealjs:
     self-contained: true
     code-overflow: wrap
-    footer: "[Introduction to SQL](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-18/18-introduction-sql.html)"
+    footer: "[Introduction to SQL](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-17/17-introduction-sql.html)"
 transition: slide
 transition-speed: default
 scrollable: true
@@ -109,10 +109,9 @@ editor:
 :::
 
 ## Installing SQLite
+### macOS and Linux
 
 :::{style="margin-top: 50px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="50%"}
 - If you use MacOS or Linux, you probably already have SQLite installed
 - To check, open a terminal and type `sqlite3` 
   - Then type `.quit` to exit the SQLite prompt!
@@ -132,11 +131,16 @@ sqlite3 --version
 ```
 :::
 
+## Installing SQLite
+### Windows
+
+:::{style="margin-top: 50px; font-size: 20px;"}
+:::{.columns}
 :::{.column width="50%"}
 - Windows users can download the SQLite precompiled binaries from the [SQLite website](https://www.sqlite.org/download.html). Download the files that have the `sqlite3` DLL and the command-line shell (`sqlite-dll...` and `sqlite-tools...`)
 - Then follow these steps:
   - Create a folder `C:\>sqlite` and unzip the files in this folder, which will give you `sqlite3.def`, `sqlite3.dll` and `sqlite3.exe` files 
-  - Add `C:\>sqlite` in your `PATH` environment variable and go to the command prompt and issue `sqlite3` command, which should display the following result
+  - Double click the `sqlite3` file to open the software, and you will see the SQLite prompt
 
 ```{verbatim}
 C:\>sqlite3
@@ -145,6 +149,14 @@ Enter ".help" for instructions
 Enter SQL statements terminated with a ";"
 sqlite>
 ```
+:::
+
+:::{.column width="50%"}
+- If you want to use SQLite in the command line, you can add the folder to your PATH variable
+- Search and click on `Edit the system environment variables`
+- Click on `Environment Variables...`
+- Set `C:\sqlite` to `Path` in both or either User variables and/or System variables, then you can use SQLite on terminal (command prompt)
+- [More about this here](https://stackoverflow.com/questions/7330565/how-to-install-sqlite-on-windows)
 :::
 :::
 :::
@@ -275,7 +287,7 @@ CREATE TABLE drivers (
 - The five core data types in SQLite: 
   - `TEXT`: Stores string values of any length using UTF-8 encoding
   - `INTEGER`: Holds whole numbers (positive or negative)
-  - `NUMERIC`: Stores decimal numbers as 8-byte IEEE floating-point values
+  - `NUMERIC`: Stores decimal numbers as floating-point values
   - `BLOB`: Contains binary data preserved as input
   - `NULL`: Represents missing or undefined data
 - SQLite also has [other data types]{.alert}, such as `REAL`, `BOOLEAN`, `DATE`, `TIME`, and `DATETIME`
