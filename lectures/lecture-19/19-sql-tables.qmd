@@ -45,7 +45,7 @@ editor:
 - Use special joins, such as `CROSS JOIN` and `SELF JOIN`
 - Merge tables by row with `UNION`, `INTERSECT`, and `EXCEPT`
 - Learn how to create `UPSERT` statements in SQLite
-- Creating `VIEWS` in SQLite
+- Create `VIEWS` in SQLite
 - Solve exercises to practice what we learned
 - Let's get started! 🚀
 :::
@@ -140,7 +140,7 @@ cursor.execute('''
 INSERT INTO teams (team_name) VALUES
 ('Inter Miami'),
 ('Real Madrid'),
-('Al Hilal'),
+('Santos'),
 ('Real Madrid'),
 ('Bayern');
 ''')
@@ -331,7 +331,7 @@ pd.read_sql('''
 SELECT players.player_name, teams.team_name
 FROM players
 CROSS JOIN teams
-ORDER BY players.player_id, teams.team_id; -- Added team_id to ordering for consistency
+ORDER BY players.player_id, teams.team_id;
 ''', connection)
 ```
 :::
@@ -358,7 +358,7 @@ pd.read_sql('''
 SELECT
     colours.colour_name,
     sizes.size_code,
-    colours.colour_name || ' - ' || sizes.size_code as t_shirt -- Use || for concatenation
+    colours.colour_name || ' - ' || sizes.size_code as t_shirt
 FROM colours
 CROSS JOIN sizes
 ORDER BY colours.colour_name, sizes.size_code DESC;
@@ -394,7 +394,7 @@ cursor.execute('''
 CREATE TABLE family (
     person_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
-    mother_id INT -- Refers to family.person_id
+    mother_id INT 
 );
 ''')
 
@@ -415,7 +415,7 @@ SELECT
     mothers.name as mother
 FROM family AS children
 JOIN family AS mothers ON children.mother_id = mothers.person_id
-ORDER BY mothers.name, children.name; -- Added child name to ordering
+ORDER BY mothers.name, children.name;
 ''', connection)
 ```
 :::
@@ -452,7 +452,7 @@ ORDER BY difference DESC;
 - The `UNION` operator combines the result sets of two or more `SELECT` statements vertically (stacking rows).
 - It automatically **removes duplicate rows** from the combined results. If you want to keep duplicates, use `UNION ALL`.
 - The columns in each `SELECT` statement must be compatible: the same number of columns, and corresponding columns must have compatible data types.
-- Let's find all players who have either scored more than 5 goals OR achieved more than 3 victories. `UNION` is suitable here because we are combining two subsets of the *same* entity type (players) based on different criteria, and we want a unique list.
+- Let's find all players who have either scored more than 7 goals OR achieved more than 3 victories. `UNION` is suitable here because we are combining two subsets of the *same* entity type (players) based on different criteria, and we want a unique list. 
 
 ```{python}
 #| echo: true
@@ -563,9 +563,10 @@ ORDER BY player_name;
 
 :::{style="margin-top: 50px; font-size: 20px;"}
 - SQLite provides "UPSERT" (Update or Insert) operations using the `INSERT ... ON CONFLICT` clause.
-- This allows you to attempt an `INSERT`, and if it violates a constraint (like `UNIQUE` or `PRIMARY KEY`), you can specify an alternative action, typically an `UPDATE`.
+- This allows you to attempt an `INSERT`, and if it violates a constraint (like `UNIQUE` or `PRIMARY KEY`), you can specify an alternative action, typically a `DO UPDATE`.
 - You can specify different actions for different types of conflicts, such as `IGNORE`, `REPLACE`, or `UPDATE`.
 - Let's see a simplified example: If we try to insert a player with an existing `player_name`, we update their `goals` instead.
+- You will notice that `excluded` is a special table that refers to the row that would have been inserted if there was no conflict. [SQLite always uses this name]{.alert}.
 
 ```{python}
 #| echo: true
@@ -583,7 +584,7 @@ pd.read_sql('SELECT * FROM players', connection)
 ```
 :::
 
-# Views {#sec:views}
+# Views 🔎 {background-color="#2d4563"}
 
 ## Views
 
@@ -637,21 +638,6 @@ connection.commit() # Commit the view creation
 
 # Now showcase the view by querying it with pandas
 pd.read_sql('SELECT * FROM colour_size;', connection)
-```
-:::
-
-## Views
-
-:::{style="margin-top: 50px; font-size: 23px;"}
-- You can also drop the view if you no longer need it.
-
-```{python}
-#| echo: true
-#| eval: true
-# Drop the view if it exists
-cursor.execute('DROP VIEW IF EXISTS player_team_stats;')
-connection.commit() # Commit changes
-print("View 'player_team_stats' dropped.")
 ```
 :::
 
