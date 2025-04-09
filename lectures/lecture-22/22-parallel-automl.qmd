@@ -56,7 +56,7 @@ editor:
 - Today we will continue our discussion on parallel computing
 - We will focus on parallelising data analysis tasks with [Dask ML](https://ml.dask.org/)
 - More specifically, we will discuss how to parallelise the training of machine learning models, and how to use automated machine learning (AutoML) tools to speed up the process
-- We will also learn about [Dask Clusters](https://docs.dask.org/en/latest/setup/clusters.html), which allow you to scale your computations across multiple machines (or just one!)
+- We will also learn about [Dask Clusters](https://docs.dask.org/en/stable/deploying.html), which allow you to scale your computations across multiple machines (or just one!)
 :::
 
 :::{.column width="55%"}
@@ -72,9 +72,7 @@ editor:
 ## What is a Dask Cluster?
 ### Workers and schedulers
 
-:::{style="margin-top: 30px; font-size: 19px;"}
-:::{.columns}
-:::{.column width="50%"}
+:::{style="margin-top: 30px; font-size: 22px;"}
 - A Dask Cluster is [a collection of Dask workers]{.alert} that can be used to parallelise your computations
 - In plain English, a Dask Cluster is [a group of computational engines]{.alert} (cores, GPUs, servers, etc) that work together to solve a problem
 - Workers provide two functions:
@@ -95,24 +93,51 @@ Frank -> Scheduler: I've computed b and am holding on to it!
 ```
 :::
 
-:::{.column width="50%"}
+## What is a Dask Cluster?
+### Workers and schedulers
+
+:::{style="margin-top: 27px; font-size: 24px;"}
 - How do workers know what to do?
-  - The scheduler assigns tasks to workers based on their availability
+  - The scheduler [assigns tasks to workers based on their availability]{.alert}
   - Workers can be on the same machine or on different machines
   - Workers can be CPUs or GPUs
 - Dask workers save their data as a Python dictionary, which is then sent to the scheduler as a thread in [the `concurrent.futures` library](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor)
-- These processes can automatically restart and scale up without any intervention from the user
+- These processes can [automatically restart and scale up without any intervention from the user]{.alert}
 - The optimal number of workers depends on the size of the data and the complexity of the computations, but often the default configuration is sufficient
 - In an adaptive cluster, you set the minimum and maximum number of workers and let the cluster add and remove workers as needed
+- [Dask also provides a dashboard to monitor the performance of your cluster]{.alert}
 :::
-:::
+
+## Setting up a Dask Cluster
+
+:::{style="margin-top: 30px; font-size: 27px;"}
+- First, we need to install Dask and the distributed scheduler
+
+```{verbatim}
+python -m pip install dask distributed --upgrade
+```
+
+- The `distributed` scheduler is the default for Dask and it works great 👍
+- Conda users can install it with:
+
+```{verbatim}
+conda install dask distributed -c conda-forge
+```
+
+- Or you can source it straight from GitHub:
+
+```{verbatim}
+git clone https://github.com/dask/distributed.git
+cd distributed
+python -m pip install .
+```
 :::
 
 ## Setting up a Dask Client
 
 :::{style="margin-top: 30px; font-size: 22px;"}
 - Using `dask.distributed` requires that you set up a Client 
-- This should be the first thing you do if you intend to use `dask.distributed` in your analysis
+- This should be [the first thing you do]{.alert} if you intend to use `dask.distributed` in your analysis
 - It offers low latency, data locality, data sharing between the workers, and is easy to set up
 
 ```{python}
@@ -226,19 +251,38 @@ y.compute()
 
 ## What is Dask ML?
 
-:::{style="margin-top: 30px; font-size: 19px;"}
-:::{.columns}
-:::{.column width="50%"}
+:::{style="margin-top: 30px; font-size: 26px;"}
 - [Dask ML](https://ml.dask.org/) is a scalable machine learning library built on top of Dask
 - It provides parallel implementations of many popular machine learning algorithms and libraries, such as scikit-learn, XGBoost, LightGBM, TensorFlow, and PyTorch
 - Dask ML is built on top of Dask Arrays and DataFrames, allowing you to scale your machine learning workflows to large datasets
 - You can use Dask ML to do many tasks, such as model selection, model evaluation, and, most importantly, hyperparameter tuning
 - And you can also use it together with [automated machine learning (AutoML)](https://en.wikipedia.org/wiki/Automated_machine_learning) tools to speed up the process
-- The main advantage of using Dask ML + AutoML together is that you can quickly move from data preprocessing to model evaluation without having to worry about the details of the machine learning algorithms
-- In a sense, this is a tool to democratise machine learning
+- So let's see what AutoML is and how to use it with Dask ML!
 :::
 
-:::{.column width="50%"}
+# AutoML 🤖 {background-color="#2d4563"}
+
+## What is AutoML?
+
+:::{style="margin-top: 30px; font-size: 22px;"}
+- [AutoML](https://en.wikipedia.org/wiki/Automated_machine_learning) is a set of tools that, well, automate the process of applying machine learning
+- The main goal of AutoML is to make machine learning more [accessible to non-experts and to speed up the process of building machine learning models]{.alert}
+- Think about it as a more advanced version of scikit-learn (or a more realistic version of "vibe coding" 😂)
+- This allows users to focus on the problem at hand rather than the intricacies of the algorithms
+- There are [several tools available for AutoML]{.alert}, such as:
+  - [TPOT](https://epistasislab.github.io/tpot/)
+  - [Amazon SageMaker Autopilot](https://aws.amazon.com/sagemaker/autopilot/)
+  - [Auto-sklearn](https://automl.github.io/auto-sklearn/master/)
+  - [H2O.ai](https://www.h2o.ai/)
+  - [Google Cloud AutoML](https://cloud.google.com/automl)
+  - [Microsoft Azure AutoML](https://azure.microsoft.com/en-us/services/machine-learning/automated-ml/)
+- All of them are great, but they have different features and capabilities
+- Here we will use Dask ML to parallelise the training of machine learning models with scikit-learn
+:::
+
+## What is Dask ML?
+
+:::{style="margin-top: 30px; font-size: 22px;"}
 - First, let's install Dask ML:
 
 ```{verbatim}
@@ -265,18 +309,16 @@ from sklearn.svm import SVC
 ![](figures/digits.png){width="65%"} 
 :::
 :::
-:::
-:::
 
 ## Dask ML and scikit-learn
 
-:::{style="margin-top: 30px; font-size: 19px;"}
-:::{.columns}
-:::{.column width="50%"}
+:::{style="margin-top: 30px; font-size: 21px;"}
 - Let's estimate the model with a simple grid search
 - `param_space`: A list of settings to try out for the model
-- `C`: Controls how much to punish mistakes
-- `gamma`: Defines how far the influence of a single example reaches
+- `C`: Controls how much to punish mistakes (regularisation, smaller values = more regularisation) to prevent overfitting
+  - This is in exponential notation, so `np.logspace(-6, 6, 13)` will create a list of 13 values between $10^{-6}$ and $10^6$ (!)
+- `gamma`: Defines how far the influence of a single example reaches (small points = model is less sensitive to the data)
+  - This is also in exponential notation, so `np.logspace(-8, 8, 17)` will create a list of 17 values between $10^{-8}$ and $10^8$ (!!)
 - `tol`: Tells the model when to stop trying to improve
 - `class_weight`: Options for handling imbalanced data
 - This is pretty standard scikit-learn code, but with a twist: we are using `joblib.parallel_backend('dask')` to parallelise the search
@@ -284,7 +326,9 @@ from sklearn.svm import SVC
 - The `RandomizedSearchCV` object will try out 50 different combinations of hyperparameters and return the best one
 :::
 
-:::{.column width="50%"}
+## Dask ML and scikit-learn
+
+:::{style="margin-top: 30px; font-size: 19px;"}
 ```{python}
 #| echo: true
 #| eval: false
@@ -333,15 +377,11 @@ Best estimator:  SVC(C=10.0, gamma=0.0001, tol=0.0001)
 Time taken: 2.68 seconds
 ```
 :::
-:::
-:::
 
 ## Now let's tackle the problems we discussed earlier...
-
-:::{style="margin-top: 30px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="45%"}
 ### Neither compute nor memory constrained
+
+:::{style="margin-top: 30px; font-size: 30px;"}
 
 - The model was trained in 2.68 seconds, which is pretty fast
 - The dataset is small, so we are not memory constrained
@@ -350,9 +390,9 @@ Time taken: 2.68 seconds
 - But what if we had a larger dataset or a more complex model?
 :::
 
-:::{.column width="55%"}
-### Memory constrained, but not compute constrained
+## Memory constrained, but not compute constrained
 
+:::{style="margin-top: 30px; font-size: 27px;"}
 - Here we have a case where the dataset is too large to fit in memory, but there is enough compute power to train the model
 - It makes sense to use Parquet and Dask DataFrames to load the data in chunks, but this may not be enough
 - A cool solution is Dask's `dask_ml` `Incremental` class, which can train models on chunks of data
@@ -361,14 +401,10 @@ Time taken: 2.68 seconds
 - There are some new variations of this method that are worth checking out. [Here is the documentation](https://ml.dask.org/hyper-parameter-search.html)
 - This strategy is based on scikit-learn's `partial_fit` method. [More information here](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html#sklearn.linear_model.SGDClassifier.partial_fit)
 :::
-:::
-:::
 
 ## Incremental Search
 
-:::{style="margin-top: 30px; font-size: 19px;"}
-:::{.columns}
-:::{.column width="50%"}
+:::{style="margin-top: 30px; font-size: 22px;"}
 - Let's see an example with 2 million possible hyperparameter combinations and a dataset with 100 million samples (!)
 - Combined, `X` and `y` will take up about 16 GB of memory
 - We will use the `make_classification` function from `dask_ml.datasets` to create the dataset
@@ -417,22 +453,18 @@ Time taken: 51.71 seconds
 ```
 :::
 
-:::{.column width="50%"}
+## Incremental Search
+
+:::{style="margin-top: 30px; font-size: 30px;"}
 - It took [less than one minute]{.alert} to train the model, which is _pretty fast_ considering the size of the dataset
 - My computer has 16 GB of RAM, so I would not be able to load the dataset in memory
 - But the model runs fine, and I was using my computer normally
 - Now let's see another example...
 :::
-:::
-:::
 
-## Let's continue to tackle the problems we discussed earlier
+## Compute constrained, but not memory constrained
 
-
-:::{style="margin-top: 30px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="50%"}
-### Compute constrained, but not memory constrained
+:::{style="margin-top: 30px; font-size: 21px;"}
 
 - Here we have a case where the model is too complex to train in a reasonable amount of time
 - Or the models require specialised hardware like GPU
@@ -473,9 +505,9 @@ Time taken: 1.62 seconds
 ```
 :::
 
-:::{.column width="50%"}
-### Compute and memory constrained
+## Compute and memory constrained
 
+:::{style="margin-top: 30px; font-size: 30px;"}
 - This is the worst-case scenario, where you have a large dataset and a complex model
 - In this case, you can use a combination of the strategies we discussed earlier
   - Use Dask DataFrames to load the data in chunks
@@ -484,25 +516,12 @@ Time taken: 1.62 seconds
 - Apart from this, you can always use cloud computing services like AWS, GCP, or Azure...
 - ... or pray to the machine learning gods 😂
 :::
-:::
-:::
 
-# Dask with AutoML 🤖 {background-color="#2d4563"}
+# More Dask with AutoML 🤖 {background-color="#2d4563"}
 
-## What is AutoML?
+## TPOT + Dask
 
-:::{style="margin-top: 30px; font-size: 21px;"}
-:::{.columns}
-:::{.column width="50%"}
-- In the last part of this lecture, we will discuss [automated machine learning (AutoML)](https://en.wikipedia.org/wiki/Automated_machine_learning)
-- AutoML is the process of automating the process of applying machine learning to real-world problems
-- The main goal, which I personally support, is to move quickly from data preprocessing to model evaluation without having to worry about the details of the machine learning algorithms
-- In my experience, the faster we can get the model running, the more time we have to think about the problem and the data
-- AutoML tools can be used to automate the process of hyperparameter tuning, model selection, feature engineering, and model evaluation
-- There are several tools available for AutoML, such as [Auto-sklearn](https://automl.github.io/auto-sklearn/master/), [H2O.ai](https://www.h2o.ai/), and [TPOT](https://epistasislab.github.io/tpot/)
-:::
-
-:::{.column width="50%"}
+:::{style="margin-top: 30px; font-size: 24px;"}
 - Here we will use [TPOT](https://epistasislab.github.io/tpot/), which is a Python library that automatically creates and optimises machine learning pipelines using genetic programming
 - TPOT is built on top of scikit-learn and uses a similar syntax 
 - There are several articles about how to optimise AutoML algorithms and quickly find the best model for your data, so I won't go into too much detail here (but you can check out [this article](https://arxiv.org/pdf/1908.00709) for more information)
@@ -514,12 +533,10 @@ Time taken: 1.62 seconds
 
 - I'm using Python 3.9.6 for this example, so your mileage may vary
 :::
-:::
-:::
 
 ## Using TPOT
 
-:::{style="margin-top: 30px; font-size: 19px;"}
+:::{style="margin-top: 30px; font-size: 21px;"}
 - Let's see an example using the `load_digits` dataset
 
 ```{python}
@@ -598,7 +615,7 @@ print(f"Time taken: {elapsed_time:.2f} seconds")
 ```{verbatim}
 Best pipeline: KNeighborsClassifier(input_matrix, n_neighbors=3, p=2, weights=distance)
 0.9822222222222222
-Time taken: 40.40 seconds
+Time taken: 20.40 seconds
 ```
 :::
 
@@ -668,7 +685,11 @@ df.plot(x='ds', y='y')
 m = Prophet(daily_seasonality=False)
 m.fit(df)
 ```
+:::
 
+## Using Prophet
+
+:::{style="margin-top: 30px; font-size: 19px;"}
 - And we can make a forecast. Again, no Dask here
 
 ```{python}
