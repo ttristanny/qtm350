@@ -62,8 +62,7 @@ editor:
 
 :::{.column width="55%"}
 :::{style="text-align: center; margin-top: -20px;"}
-![](figures/meme03.jpg){width='50%'}
-![](figures/meme04.jpg){width='50%'}
+![](figures/docker-meme.jpg){width='60%'}
 :::
 :::
 :::
