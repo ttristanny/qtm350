@@ -634,7 +634,7 @@ Docker version 27.3.1, build ce12230
 - Then we need to run the dockerfile to generate a Docker image
 - However, in most cases [you do not need to start from scratch]{.alert}
 - [Docker Hub](https://hub.docker.com/) has thousands of images that you can use as a base for your project, and it is very likely that someone has already created an image similar to the one you need
-- For example, as of today there are [6,852 images of data science tools](https://hub.docker.com/search?categories=Data+Science) in Docker Hub
+- For example, as of today there are [~7,600 images of data science tools](https://hub.docker.com/search?categories=Data+Science) in Docker Hub
 - But we will build one today, just to see how it works 😊
 - Our next class will be a hands-on session on Docker, so we will have plenty of time to practice how to build containers from scratch or from existing images 😉
 :::
