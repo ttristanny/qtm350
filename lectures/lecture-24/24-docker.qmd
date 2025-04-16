@@ -101,7 +101,7 @@ editor:
 :::{.columns}
 :::{.column width="50%"}
 - First, make sure you have [Docker Desktop](https://www.docker.com/products/docker-desktop) installed on your computer. It has everything you need to build, run, and share containers
-- If you are using Windows, you will need to enable [WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10) to run Linux containers 
+- If you are using Windows, you may need to enable [WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10) to run Linux containers 
 - We will use [Ubuntu 24.04](https://hub.docker.com/_/ubuntu) as the base image for our container
 - As you know by now, [Ubuntu](https://ubuntu.com/) is the most popular Linux distribution and is widely used in data science and machine learning
 - But you won't even feel you are interacting with Ubuntu, as you will be using it inside a container
