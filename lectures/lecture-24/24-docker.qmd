@@ -54,8 +54,8 @@ editor:
 :::{.columns}
 :::{.column width="50%"}
 - Last time, we saw how to create a simple container with Docker
-- We used a short [Dockerfile](https://docs.docker.com/engine/reference/builder/) to build the container, downloaded a [Python image](https://hub.docker.com/_/python), and installed a few Python packages in it
-- We then ran the container and executed a Python script, and finally [uploaded the container to Docker Hub](https://hub.docker.com/r/danilofreire/qtm350-example)
+- The example included a short [Dockerfile](https://docs.docker.com/engine/reference/builder/) to build the container, which included a [Python image](https://hub.docker.com/_/python), and a few Python packages in it
+- We then saw how to run the container and execute a Python script, and how to [upload the container to Docker Hub](https://hub.docker.com/r/danilofreire/qtm350-example)
 - Today, we will see other Docker features that are useful for data science and build more complex containers
 - We will also discuss how to use Docker in a production environment, and how to deploy containers to the cloud
 :::
@@ -73,40 +73,38 @@ editor:
 
 ## A container for all tools we covered in this course
 
-:::{style="margin-top: 30px; font-size: 23px;"}
-:::{.columns}
-:::{.column width="50%"}
+:::{style="margin-top: 30px; font-size: 27px;"}
 - Today we will have a hands-on session where we will build a container with [all the tools we have covered in this course (!)]{.alert} 🤓
-- That includes a `bash` shell, a `git` client, a `Python` interpreter, a `Jupyter` notebook server, a `Quarto` document processor, and a `SQL` database
+- That includes a `bash` shell, a `git` client, a `Python` interpreter, a `Jupyter` notebook server, a `Quarto` document processor, a `SQL` database, and `Jupyter` tools
 - We will build the container using a [Dockerfile](https://docs.docker.com/engine/reference/builder/), and then run it locally
-- The container will be based on the [official Ubuntu image](https://hub.docker.com/_/ubuntu), and we will install all the necessary packages in it
-- We will also see how to [mount volumes](https://docs.docker.com/storage/volumes/) in the container to persist data
+- The container will be based on the [official Ubuntu image](https://hub.docker.com/_/ubuntu) (the same we used when creating an AWS instance), and we will install all the necessary packages in it
+- We will explore how to [mount volumes](https://docs.docker.com/storage/volumes/) in the container to persist data
+- We will also discuss how to manage dependencies effectively within the container
 :::
 
-:::{.column width="50%"}
-- As we saw in the last lecture, there are many Docker images for data science, such as [Jupyter](https://hub.docker.com/r/jupyter/datascience-notebook), [RStudio](https://hub.docker.com/r/rocker/rstudio), and [PostgreSQL](https://hub.docker.com/_/postgres)
-- There are other ways to build containers. For example:
+## A container for all tools we covered in this course
+
+:::{style="margin-top: 30px; font-size: 27px;"}
+- As we saw in the last lecture, there are many Docker images for data science, such as [Jupyter](https://hub.docker.com/r/jupyter/datascience-notebook), [RStudio](https://hub.docker.com/r/rocker/rstudio), and [SQLite](https://hub.docker.com/r/alpine/sqlite)
+- There are many ways to build (multiple) containers. For example:
   - [Docker Compose](https://docs.docker.com/compose/), which allows you to define multi-container applications in a single file
   - [VS Code's Dev Containers extension](https://code.visualstudio.com/docs/remote/containers), which integrates Docker with Visual Studio Code
-- But to keep things simple, we will only use a single container today and run it with the `docker run` command
-:::
-:::
+  - [Kubernetes](https://kubernetes.io/), which is used for automating deployment, scaling, and management of containerised applications
+- But to keep things simple, we will use a single container today and run it with the `docker run` command
 :::
 
 # Let's get started! 🚀 {background-color="#2d4563"}
 
 ## Docker Desktop and Ubuntu
 
-:::{style="margin-top: 30px; font-size: 20px;"}
+:::{style="margin-top: 30px; font-size: 24px;"}
 :::{.columns}
 :::{.column width="50%"}
 - First, make sure you have [Docker Desktop](https://www.docker.com/products/docker-desktop) installed on your computer. It has everything you need to build, run, and share containers
 - If you are using Windows, you will need to enable [WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10) to run Linux containers 
 - We will use [Ubuntu 24.04](https://hub.docker.com/_/ubuntu) as the base image for our container
-- [Ubuntu](https://ubuntu.com/) is one of the most popular Linux distributions and is widely used in data science, machine learning, and AI
-- For instance, if you are using [Google Colab](https://colab.research.google.com/) or [Amazon AWS](https://aws.amazon.com/), you are probably running Ubuntu
-- The good thing about Ubuntu is that almost all commands we have covered in this course work the same way in Ubuntu,as it is also a Unix-like system like macOS (it uses `bash` as the default shell)
-- But you won't even feel you are interacting with Ubuntu, as you will be inside a container
+- As you know by now, [Ubuntu](https://ubuntu.com/) is the most popular Linux distribution and is widely used in data science and machine learning
+- But you won't even feel you are interacting with Ubuntu, as you will be using it inside a container
 :::
 
 :::{.column width="50%"}
@@ -118,13 +116,52 @@ editor:
 :::
 :::
 
-## Anatomy of a Dockerfile
+## Downloading Docker Desktop
+
+:::{style="margin-top: 30px; font-size: 32px;"}
+- Please download Docker Desktop for your operating system here: <https://www.docker.com/>
+- There are versions for Windows, macOS, and Linux
+- You can install it like any other application, just follow the instructions of the installer
+- Docker now has a native Windows application, so it should work without any issues
+- More information here: <https://docs.docker.com/desktop/setup/install/windows-install/>
+:::
+
+## Downloading Docker Desktop
+
+:::{style="margin-top: 30px; font-size: 22px; text-align: center;"}
+![](figures/docker-website.png){width="100%"}
+:::
+
+## Creating an account on Docker Hub
+
+:::{style="margin-top: 30px; font-size: 26px;"}
+:::{.columns}
+:::{.column width="50%"}
+- If you don't have a Docker Hub account yet, please create one here: <https://hub.docker.com/signup>
+- Docker has several types of accounts, but the free account is enough for academic purposes
+- You can use Docker Hub to store your images and share them with others
+- If you click on `Sign in` on the Docker Desktop application or on the website, it will open a web browser and ask you to log in
+- Please enter your credentials and log in
+:::
+
+:::{.column width="50%"}
+:::{style="text-align: center; margin-top: -30px;"}
+![](figures/docker-signin.png)
+:::
+:::
+:::
+:::
+
+## Anatomy of a Dockerfile revisited
 ### `FROM image:tag`
 
 :::{style="margin-top: 30px; font-size: 22px;"}
 - As we saw in the last lecture, a [Dockerfile](https://docs.docker.com/engine/reference/builder/) is a text document that contains all the commands a user could call on the command line to assemble an image
-- The Dockerfile is a recipe for building a container, and the first line of the Dockerfile specifies the base image
+- The Dockerfile is a recipe for building a container
 - The base image is the starting point for the container, and it can be any image available on [Docker Hub](https://hub.docker.com/)
+- So please create a text file called `Dockerfile` (without any extension) in your directory
+- Any editor will do to create the file! 😉
+- You will need about 2GB of free space to build the container, so make sure you have enough space on your computer
 - We start will start our Dockerfile with `FROM`, followed by the base image we want to use
 
 ```Dockerfile
@@ -137,69 +174,107 @@ FROM ubuntu:24.04
 - Okay, that's the easy part. Now let's install all the tools we need in the container! 🛠️
 :::
 
-## Anatomy of a Dockerfile
-### `RUN command`
+## `LABEL` command
 
-:::{style="margin-top: 30px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="50%"}
+:::{style="margin-top: 30px; font-size: 24px;"}
+- The `LABEL` instruction adds metadata to an image
+- This is useful for documentation purposes and to provide information about the image
+- You can add any key-value pairs you want, but it is a good practice to include the version, description, maintainer, and license
+- You can also add a `MAINTAINER` instruction to specify the maintainer of the image
+- For instance, you can add the following lines to your Dockerfile
+
+```Dockerfile
+# Metadata
+LABEL version="1.0"
+LABEL description="Container with the tools covered in QTM 350"
+LABEL maintainer="Danilo Freire <danilo.freire@emory.edu>"
+LABEL license="MIT"
+```
+- This will add the metadata to the image, and you can see it when you run the `docker inspect` command
+:::
+      
+## `RUN` command
+
+:::{style="margin-top: 30px; font-size: 24px;"}
 - The `RUN` instruction executes any commands in a new layer on top of the current image and commits the results
 - Yes, [commits in Docker are like commits in Git](https://docs.docker.com/engine/reference/commandline/commit/), but instead of saving changes to a file system, they save changes to an image
-- Ubuntu has a package manager called `apt`, which we can use to install software packages. The only commands we will need to use are `apt-get update` (only once) and `apt-get install <package>`
-  - For example, to install `git`, we would run `apt-get update && apt-get install -y git` 
+- Remember `apt`? We will use it again to install software packages (as we did with AWS) 
+- The only commands we will need to use are `apt-get update` (only once) and `apt-get install <package>`
+  - For example, to install `git`, we would run `apt-get update && apt-get install git -y` 
 - To keep the image smaller, we will also run `apt-get clean` and `rm -rf /var/lib/apt/lists/*` after installing the packages
   - This will remove the package cache and clean up the image
+- Let's add some packages to the Dockerfile 🐳
 :::
 
-:::{.column width="50%"}
+## `RUN` command
+
+:::{style="margin-top: 30px; font-size: 24px;"}
 ```Dockerfile
 # Update and install dependencies
 # Versions: https://packages.ubuntu.com/
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     bash=5.2.21-2ubuntu4 \
-    git=1:2.43.0-1ubuntu7.1 \
+    git=1:2.43.0-1ubuntu7.2 \
     sqlite3=3.45.1-1ubuntu2 \
     wget=1.21.4-1ubuntu4.1 \
-    python3=3.12.3-0ubuntu2 \
-    python3.12-venv \
+    python3=3.12.3-1ubuntu0.5 \
+    python3.12-venv=3.12.3-1ubuntu0.5 \
     python3-pip=24.0+dfsg-1ubuntu1.1 && \ 
     apt-get clean && rm -rf /var/lib/apt/lists/*
 ```
 
 - So far, so good! 😃 
-- You can see that we are installing specific versions of the packages, which is a good practice to ensure reproducibility
-- On Ubuntu, you can find the available versions of a package [here](https://packages.ubuntu.com/)
-- Make sure to match the version of the operating system with the version of the package
-:::
-:::
+- You can see that we are installing [specific versions of the packages]{.alert}, which is a good practice to ensure reproducibility
+- On Ubuntu, you can find the available versions of a package at <https://packages.ubuntu.com/>
+- Make sure to match the version of the operating system with the version of the package (`24.04 LTS` or `noble` in this case)
 :::
 
-## Result of the `RUN` instruction
+## Setting the default shell to `bash`
 
-:::{style="margin-top: 30px; font-size: 22px; text-align: center;"}
-![](figures/docker-run01.png)
+:::{style="margin-top: 30px; font-size: 30px;"}
+- By default, Docker uses `sh` as the default shell, but we want to use `bash` instead
+- We can set the default shell to `bash` by adding the following line to the Dockerfile
+
+```Dockerfile
+# Set the default shell to bash
+SHELL ["/bin/bash", "-c"]
+```
+
+- The command specifies the shell to use when running commands in the container, and the `-c` option tells `bash` to run the command and then exit
+- This way, we can use `bash` commands in the Dockerfile without having to specify the shell every time
 :::
 
 ## Hey Danilo, wait a minute...🤔
-### Isn't that a lot of work to install all these packages?
+### Isn't that a lot of work?
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-:::{.columns}
-:::{.column width="50%"}
-- Yes, it is! 
-- [But I am purposely making it harder than it should be]{.alert} 😅
-- What makes it harder for us is that we are starting from a really bare-bones image (Ubuntu) and installing everything from scratch
-- And I don't have Ubuntu installed on my computer, so I can't just run `apt list --installed` to see which packages are installed on my system and just copy them to the Dockerfile
+:::{style="margin-top: 30px; font-size: 30px;"}
+- [Yes, it is!]{.alert} 😅
+- I am purposely making it harder than it should be!
+- But this is the most flexible way to build a container 
+- We are starting from a really bare-bones image (Ubuntu) and installing everything from scratch
+- And I (we?) don't have Ubuntu installed on my computer, so I can't just run `apt list --installed` to see which packages are installed on my system and just copy them to the Dockerfile
 - In this case, it did involve some research to find the right package names and versions
 - But once you have the Dockerfile, you can reuse it as many times as you want
 :::
 
+## Reusing the Dockerfile
+
+:::{style="margin-top: 30px; font-size: 25px;"}
+:::{.columns}
 :::{.column width="50%"}
 - You could also have saved some time by using a [Python image](https://hub.docker.com/_/python) as the base image
 - The Python image already comes with Python and `pip` installed, so you would only need to install the other packages
 - Thus, my suggestion here is, if you are building a container for a specific purpose, [start with an image that is closer to what you need]{.alert}
 - For instance, you can download a [Jupyter image with a full data science stack with one line of code](https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html)
-- But for educational purposes, I think it is good to start from scratch and understand how things work under the hood. Sorry! 😅
+- But it wouldn't be so fun, would it? 😅
+:::
+
+:::{.column width="50%"}
+:::{style="text-align: center; margin-top: -30px;"}
+![](figures/python.png){width="100%"}
+
+<https://hub.docker.com/_/python>
+:::
 :::
 :::
 :::
@@ -208,11 +283,12 @@ RUN apt-get update && apt-get install -y \
 ### Installing additional packages
 
 :::{style="margin-top: 30px; font-size: 22px;"}
-- After installing the system packages, we will install the additional packages we need
-- We will install, for example, a few Python libraries with `pip3`, such as `numpy`, `pandas`, `jupyterlab`, `dask`, and `matplotlib`
-- We will use the `RUN` instructions again
-- You can either see the versions you already have with `pip show <package> | grep Version` or `pip freeze > requirements.txt` and then copy the versions from the file
+- After installing the system packages, we have to install the additional packages we need
+- We will use the `RUN` instructions to install a few Python libraries with `pip3`, such as `numpy`, `pandas`, `jupyterlab`, `dask`, and `matplotlib`
+- You can either see the versions you already have on your computer with `pip show <package> | grep Version` or `pip freeze > requirements.txt` and then copy the versions from the file
 - Ubuntu requires us to create a virtual environment to install Python packages, so we will do that too
+- `ENV PATH="/opt/venv/bin:$PATH" prepends the directory `/opt/venv/bin` to the beginning of the existing `PATH` environment variable within the Docker image
+- This allows us to use the Python interpreter and packages installed in the virtual environment without needing to specify the full path every time
 
 ```Dockerfile
 # Create and activate virtual environment
@@ -239,9 +315,9 @@ RUN pip install numpy==1.26.4 pandas==2.2.2 \
 ```Dockerfile
 # Download and install Quarto
 # Install Quarto
-RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.37/quarto-1.6.37-linux-arm64.deb && \
-    apt-get install -y quarto-1.6.37-linux-arm64.deb && \
-    rm quarto-1.6.37-linux-arm64.deb
+RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.43/quarto-1.6.43-linux-amd64.deb && \
+    apt-get install -y ./quarto-1.6.43-linux-amd64.deb && \
+    rm ./quarto-1.6.43-linux-amd64.deb
 ```
 :::
 
@@ -255,36 +331,30 @@ RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.37/quar
 - Let's also create a working directory for the Jupyter notebook server, so we can persist the notebooks outside the container
 
 ```Dockerfile
-# Create a directory for saving files
-RUN mkdir -p /workspace
-WORKDIR /workspace
-
-# Expose the Jupyter notebook server port
-EXPOSE 8888
-
-# Start JupyterLab
-CMD ["sh", "-c", ". /opt/venv/bin/activate && jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root"]
-```
-:::
-
-## The final Dockerfile
-### Ready to run the container! 🐳
-
-:::{style="margin-top: 30px; font-size: 20px;"}
-```Dockerfile
 # Base image
 FROM ubuntu:24.04
 
+# Metadata
+LABEL version="1.0"
+LABEL description="Container with the tools covered in QTM 350"
+LABEL maintainer="Danilo Freire <danilo.freire@emory.edu>"
+LABEL license="MIT"
+
 # Update and install system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends\
     bash=5.2.21-2ubuntu4 \
-    git=1:2.43.0-1ubuntu7.1 \
-    curl=8.5.0-2ubuntu10.5 \
+    git=1:2.43.0-1ubuntu7.2 \
+    sqlite3=3.45.1-1ubuntu2 \
+    libsqlite3-0=3.45.1-1ubuntu2 \
     wget=1.21.4-1ubuntu4.1 \
-    python3=3.12.3-0ubuntu2 \
-    python3.12-venv \
+    nano=7.2-2ubuntu0.1 \
+    python3.12=3.12.3-1ubuntu0.5 \
+    python3.12-venv=3.12.3-1ubuntu0.5 \
     python3-pip=24.0+dfsg-1ubuntu1.1 && \ 
     apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Set default shell to Bash
+SHELL ["/bin/bash", "-c"]
 
 # Create and activate virtual environment
 RUN python3 -m venv /opt/venv
@@ -296,9 +366,15 @@ RUN pip install numpy==1.26.4 pandas==2.2.2 \
                 dask==2024.11.2 matplotlib==3.9.2
 
 # Install Quarto
-RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.37/quarto-1.6.37-linux-arm64.deb && \
+RUN apt-get update && apt-get install -y --no-install-recommends wget ca-certificates && \
+    # Download the specific Quarto deb file
+    wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.37/quarto-1.6.37-linux-arm64.deb && \
+    # Install the local deb file (NOTICE the "./" prefix)
     apt-get install -y ./quarto-1.6.37-linux-arm64.deb && \
-    rm quarto-1.6.37-linux-arm64.deb
+    # Clean up the downloaded file and apt cache
+    rm quarto-1.6.37-linux-arm64.deb && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Create a directory for saving files
 RUN mkdir -p /workspace
@@ -309,6 +385,10 @@ EXPOSE 8888
 
 # Start JupyterLab
 CMD ["sh", "-c", ". /opt/venv/bin/activate && jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root"]
+
+# Run the Docker container
+# docker build -t qtm350-container .
+# docker run -it --rm -p 8888:8888 -v $(pwd):/workspace qtm350-container
 ```
 :::
 
@@ -331,6 +411,54 @@ docker build -t qtm350-container .
 :::
 :::
 
+## Oh, no! 😱
+
+:::{style="margin-top: 30px; font-size: 22px;"}
+- We got an error when building the container! 😕
+
+```verbatim
+[...]
+
+4.585 Some packages could not be installed. This may mean that you have
+4.585 requested an impossible situation or if you are using the unstable
+4.585 distribution that some required packages have not yet been created
+4.585 or been moved out of Incoming.
+4.585 The following information may help to resolve the situation:
+4.585 
+4.585 The following packages have unmet dependencies:
+4.650  sqlite3 : Depends: libsqlite3-0 (= 3.45.1-1ubuntu2) but 3.45.1-1ubuntu2.1 is to be installed
+4.651 E: Unable to correct problems, you have held broken packages.
+```
+- The error message indicates that there are unmet dependencies for the `sqlite3` package!
+:::
+
+## Fixing the error 🔧
+
+:::{style="margin-top: 30px; font-size: 22px;"}
+- But that's fine, we know how to fix it! 😎
+- We can resolve the unmet dependencies by [ensuring the correct versions of the packages are installed]{.alert} 
+- So we go to <https://packages.ubuntu.com/>, search for `libsqlite3-0` and check the available versions
+- We can see that the version `3.45.1-1ubuntu2` is available, so we can just add it to the `apt-get install` command
+- Let's update the Dockerfile and try again
+
+```Dockerfile
+    libsqlite3-0=3.45.1-1ubuntu2 \
+```
+- Now we can build the container again with the same command as before
+
+```{verbatim}
+docker build -t qtm350-container .
+```
+
+- This time it should work! 🤞
+:::
+
+## Success! 🎉
+
+:::{style="margin-top: 30px; font-size: 22px; text-align: center;"}
+![](figures/docker02.png)
+:::
+
 ## Running the container
 
 :::{style="margin-top: 30px; font-size: 22px;"}
@@ -344,33 +472,20 @@ docker run -p 8888:8888 -v $(pwd):/workspace qtm350-container
 
 - The `-v` flag is used to mount the current directory (`$(pwd)`) to the `/workspace` directory in the container
 - This way, we can save the notebooks outside the container and access them even after the container is stopped
-- Now we just need to open a web browser and go to <http://localhost:8888> to access the JupyterLab interface 🚀
+- Now we just need to open a web browser and go to <http://127.0.0.1:8888> to access the JupyterLab interface 🚀
+- Jupyter will also generate a token for you to access the interface, so you will need to copy and paste the token from the terminal to the web browser (or click on the link)
 :::
 
-## Adding some metadata to the container
+## Running the container
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-- We can personalise the container by adding some metadata to it
-- We can use the `LABEL` instruction to add metadata to the container, such as the author, the version, and the description
-- We can also add a `MAINTAINER` instruction to specify the maintainer of the container
-- This information will be displayed when we run the `docker inspect` command
+:::{style="margin-top: 30px; font-size: 22px; text-align: center;"}
+![](figures/docker03.png)
+:::
 
-```Dockerfile
-# Metadata
-LABEL version="1.0" \ 
-      description="Container with all tools covered in QTM 350" \ 
-      maintainer="Danilo Freire <danilo.freire@emory.edu>" \
-      license="MIT"
-```
+## Accessing the JupyterLab interface
 
-- We can also add a `COPY` instruction to copy files from the host machine to the container
-
-```Dockerfile
-# Copy files from host to container
-COPY . /workspace
-```
-
-- We won't need to do that here, but it may be useful in other situations where you need to copy scripts or datasets to the container
+:::{style="margin-top: 30px; font-size: 22px; text-align: center;"}
+![](figures/docker04.png)
 :::
 
 ## How to manage the container

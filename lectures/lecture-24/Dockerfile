@@ -3,22 +3,20 @@ FROM ubuntu:24.04
 
 # Metadata
 LABEL version="1.0"
-LABEL description="Container with all tools covered in QTM 350"
+LABEL description="Container with the tools covered in QTM 350"
 LABEL maintainer="Danilo Freire <danilo.freire@emory.edu>"
 LABEL license="MIT"
 
-# Set non-interactive mode for apt-get
-ENV DEBIAN_FRONTEND=noninteractive
-
 # Update and install system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends\
     bash=5.2.21-2ubuntu4 \
-    git=1:2.43.0-1ubuntu7.1 \
-    curl=8.5.0-2ubuntu10.5 \
+    git=1:2.43.0-1ubuntu7.2 \
     sqlite3=3.45.1-1ubuntu2 \
+    libsqlite3-0=3.45.1-1ubuntu2 \
     wget=1.21.4-1ubuntu4.1 \
-    python3=3.12.3-0ubuntu2 \
-    python3.12-venv \
+    nano=7.2-2ubuntu0.1 \
+    python3.12=3.12.3-1ubuntu0.5 \
+    python3.12-venv=3.12.3-1ubuntu0.5 \
     python3-pip=24.0+dfsg-1ubuntu1.1 && \ 
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -35,9 +33,15 @@ RUN pip install numpy==1.26.4 pandas==2.2.2 \
                 dask==2024.11.2 matplotlib==3.9.2
 
 # Install Quarto
-RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.37/quarto-1.6.37-linux-arm64.deb && \
+RUN apt-get update && apt-get install -y --no-install-recommends wget ca-certificates && \
+    # Download the specific Quarto deb file
+    wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.37/quarto-1.6.37-linux-arm64.deb && \
+    # Install the local deb file (NOTICE the "./" prefix)
     apt-get install -y ./quarto-1.6.37-linux-arm64.deb && \
-    rm quarto-1.6.37-linux-arm64.deb
+    # Clean up the downloaded file and apt cache
+    rm quarto-1.6.37-linux-arm64.deb && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Create a directory for saving files
 RUN mkdir -p /workspace
