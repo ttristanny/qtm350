@@ -526,5 +526,3 @@ docker push danilofreire/qtm350-container
 :::
 
 # And that's it for today! 🎉 {background-color="#2d4563"}
-
-# Happy Thanksgiving! 🦃 {background-color="#2d4563"}
