@@ -239,7 +239,7 @@ $if(author)$
 $endif$
 
 % Date
-\date{$date$}
+\date{{Fall 2025}}
 
 % Tightlist
 \providecommand{\tightlist}{%
