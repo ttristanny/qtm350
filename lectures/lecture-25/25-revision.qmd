@@ -4,7 +4,7 @@ subtitle: Lecture 25 - Course Revision
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
-    affiliations: Emory University
+    affiliations: "Department of Data and Decision Sciences <br> Emory University"
 format:
   clean-revealjs:
     self-contained: true

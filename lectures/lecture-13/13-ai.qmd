@@ -4,7 +4,7 @@ subtitle: Lecture 13 - AI-Assisted Programming, APIs, and Agents
 author:
   - name: Danilo Freire
     orcid: 0000-0002-4712-6810
-    affiliations: Emory University
+    affiliations: "Department of Data and Decision Sciences <br> Emory University"
 format:
   clean-revealjs:
     self-contained: true

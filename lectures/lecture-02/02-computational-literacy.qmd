@@ -4,7 +4,7 @@ subtitle: "Lecture 02: Computational Literacy"
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
-    affiliations: Department of Quantitative Theory and Methods <br> Emory University
+    affiliations: Department of Data and Decision Sciences <br> Emory University
 format:
   clean-revealjs:
     self-contained: true
@@ -84,7 +84,7 @@ for (package in packages) {
 ::: {.column width="50%"}
 ::: {style="font-size: 24px;"}
 - The course focuses on three key areas of data science: [reliability]{.alert}, [reproducibility]{.alert}, and [robustness]{.alert}
-- Main topics: [command line and shell scripting (terminal),]{.fragment .fade-in} [version control (git and GitHub),]{.fragment .fade-in} [reproducible reports (Quarto),]{.fragment .fade-in} [data wrangling and storage (Python and SQL),]{.fragment .fade-in} [data visualisation (Python),]{.fragment .fade-in} [AI-paired programming (Copilot),]{.fragment .fade-in} [introduction to containers (Docker),]{.fragment .fade-in} [and parallel computing (Python)]{.fragment .fade-in}
+- Main topics: [command line and shell scripting (terminal),]{.fragment .fade-in} [version control (git and GitHub),]{.fragment .fade-in} [reproducible reports (Quarto),]{.fragment .fade-in} [data wrangling and storage (Python and SQL),]{.fragment .fade-in} [AI-paired programming (Copilot and Ollama),]{.fragment .fade-in} [introduction to containers (Docker),]{.fragment .fade-in} [and parallel computing (Python)]{.fragment .fade-in}
 :::
 :::
 

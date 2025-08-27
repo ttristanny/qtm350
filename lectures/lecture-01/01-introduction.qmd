@@ -5,7 +5,7 @@ author:
   - name: Danilo Freire
     orcid: 0000-0002-4712-6810
     email: danilo.freire@emory.edu
-    affiliations: "Department of Quantitative Theory and Methods <br> Emory University"
+    affiliations: "Department of Data and Decision Sciences <br> Emory University"
 format:
   clean-revealjs:
     self-contained: true
@@ -103,7 +103,7 @@ Please remember to check the course repository regularly for updates and announc
 
 ::: {.column}
 ::: {style="font-size: 28px;"}
-`r fa('chalkboard-user')` Visiting Assistant Professor in the [QTM](https://qtm.emory.edu)
+`r fa('chalkboard-user')` Visiting Assistant Professor in the [Department of Data and Decision Sciences](https://quantitative.emory.edu)
 
 `r fa('graduation-cap')` MA from the Graduate Institute Geneva, PhD from King's College London, Postdoc at Brown University, Senior Lecturer at the University of Lincoln, UK
 
@@ -524,9 +524,9 @@ And much more...
 :::
 
 - **Windows:** Please install [Windows Subsystem for Linux (bash)](https://learn.microsoft.com/en-us/windows/wsl/install). Another good tutorial can be found [here](https://itsfoss.com/install-bash-on-windows/). [FAQ available here](https://learn.microsoft.com/en-us/windows/wsl/faq). 
-  - [Tip]{.alert}: [VS Code](https://code.visualstudio.com/) is a great code editor for Windows and it [already includes a terminal](https://code.visualstudio.com/docs/terminal/getting-started)
 - **Mac:** None, but you can install [iTerm2](https://iterm2.com/), [Homebrew](https://brew.sh/) and [Oh My Zsh](https://ohmyz.sh/) for a better experience
 - **Linux:** None, you should be good to go
+  - [Tip]{.alert}: [VS Code](https://code.visualstudio.com/) is a great code editor and it [already includes a terminal](https://code.visualstudio.com/docs/terminal/getting-started)
 
 ## Other tools
 
