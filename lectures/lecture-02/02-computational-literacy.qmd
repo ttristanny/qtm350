@@ -358,7 +358,7 @@ The 1970s marked the transition from mechanical to electronic:
 - For example, what is $0.59 in coin representation? Use the same four-digit
   system: quarters, dimes, nickels, and pennies
 
-- $0.59 = 2 x $0.25 + 0 x $0.10 + 1 x $0.05 + 4 x $0.01 = c2014
+- $0.59 = 2 x $0.25 + 0 x $0.10 + 1 x $0.05 + 4 x $0.01 = [c2014]{.alert}
 :::
 :::
 ::::
@@ -370,7 +370,7 @@ The 1970s marked the transition from mechanical to electronic:
 
 :::: {.columns}
 ::: {.column width="50%"}
-- [Think-Pair-Share]{.alert}: do the following conversions
+- Let's do the following conversions:
 
 - What is c1112 in dollars?
 
@@ -381,9 +381,9 @@ The 1970s marked the transition from mechanical to electronic:
 ::: {.incremental}
 Solutions:
 
-- c1112 = $0.42 = 1 x $0.25 + 1 x $0.10 + 1 x $0.05 + 2 x $0.01
+- c1112 = [$0.42]{.alert} = 1 x $0.25 + 1 x $0.10 + 1 x $0.05 + 2 x $0.01
 
-- $0.61 = c2101 = 2 x $0.25 + 1 x $0.10 + 0 x $0.05 + 1 x $0.01
+- $0.61 = [c2101]{.alert} = 2 x $0.25 + 1 x $0.10 + 0 x $0.05 + 1 x $0.01
 :::
 :::
 ::::
@@ -418,7 +418,7 @@ Solutions:
 :::{style="margin-top:40px;"}
 :::
 
-- [Think-Pair-Share]{.alert}: what is the binary representation of the decimal
+- [Question]{.alert}: what is the binary representation of the decimal
   number 3?
 
 :::{.fragment .fade-in fragment-index=1}
@@ -439,7 +439,7 @@ C) 111
 D) 010
 :::
 
-## Your turn!
+## Your turn! {#question01}
 
 [Practice Exercise 01]{.alert}: 
 
@@ -450,6 +450,10 @@ D) 010
 3. What binary number represents 9?
 
 4. What binary number represents 11?
+
+<br>
+
+* [[Solutions]{.button}](#sec-solution01)
 
 ## Convert binary to decimal
 
@@ -572,7 +576,7 @@ represented by a 1.
 :::{style="margin-top:40px; font-size: 25px;"}
 
 - Convert binary to hex by grouping into blocks of four bits.
-- Example: Binary `1001 1110 0000 1010` converts to Hex `9E0A`.
+- Example: Binary `1001 1110 0000 1010` converts to Hex `9E0A` (9 + 14 + 0 + 10).
 
 <br>
 
@@ -593,15 +597,16 @@ represented by a 1.
 ## Hexadecimal and HTML
 ### Hex and RGB
 
-:::{style="margin-top:40px;" .incremental}
+:::{style="margin-top:40px; font-size: 28px;" .incremental}
 - HTML uses hexadecimal to represent colours
 - Six-digit hex numbers specify colours:
   - FFFFFF = White
   - 000000 = Black
 
 - Each pair of digits represents a colour component (RGB).
+  - 16 * 16 = 256, so two hex digits can represent values from 0 to 255
 
-- Each color channel typically has a range from 0 to 255 (in 8-bit systems), which gives a total of 256 intensity levels for each primary color.
+- This gives a total of 256 intensity levels for each primary color.
 
 - When you combine the three channels, you get a possible color palette of $256^3$ or about 16.7 million colours
 :::
@@ -966,16 +971,18 @@ print("Hello, World!")
 :::{style="font-size: 24px; margin-top: 40px;"}
 
 1. What binary number represents 5?
-  - In binary, the number 5 is represented as 101, which equates to $(1 \times 2^2) + (0 \times 2^1) + (1 \times 2^0)$.
+- 101:  $(1 \times 2^2) + (0 \times 2^1) + (1 \times 2^0)$.
 
 2. What binary number represents 7?
-  -  In binary, the number 7 is represented as 111, which equates to $(1 \times 2^2) + (1 \times 2^1) + (1 \times 2^0)$.
+- 111: $(1 \times 2^2) + (1 \times 2^1) + (1 \times 2^0)$.
 
 3. What binary number represents 9?
-  - In binary, the number 9 is represented as 1001, which equates to $(1 \times 2^3) + (0 \times 2^2) + (0 \times 2^1) + (1 \times 2^0)$.
+- 1001: $(1 \times 2^3) + (0 \times 2^2) + (0 \times 2^1) + (1 \times 2^0)$.
 
 4. What binary number represents 11?
-  - In binary, the number 11 is represented as 1011, which equates to $(1 \times 2^3) + (0 \times 2^2) + (1 \times 2^1) + (1 \times 2^0)$.
+- 1011: $(1 \times 2^3) + (0 \times 2^2) + (1 \times 2^1) + (1 \times 2^0)$.
+
+[[Back to the exercise]{.button}](#question01)
 :::
 
 ## Solution - Practice Exercise 02 {#sec-solution02}
