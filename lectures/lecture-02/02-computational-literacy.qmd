@@ -82,14 +82,14 @@ for (package in packages) {
 :::::{.incremental}
 :::: {.columns}
 ::: {.column width="50%"}
-::: {style="font-size: 24px;"}
+::: {style="font-size: 25px;"}
 - The course focuses on three key areas of data science: [reliability]{.alert}, [reproducibility]{.alert}, and [robustness]{.alert}
 - Main topics: [command line and shell scripting (terminal),]{.fragment .fade-in} [version control (git and GitHub),]{.fragment .fade-in} [reproducible reports (Quarto),]{.fragment .fade-in} [data wrangling and storage (Python and SQL),]{.fragment .fade-in} [AI-paired programming (Copilot and Ollama),]{.fragment .fade-in} [introduction to containers (Docker),]{.fragment .fade-in} [and parallel computing (Python)]{.fragment .fade-in}
 :::
 :::
 
 ::: {.column width="50%"}
-::: {style="font-size: 24px;"}
+::: {style="font-size: 25px;"}
 - [Grading]{.alert}: 
   - 50% assignments (10x)
   - 30% in-class quizzes (5x)
@@ -100,7 +100,6 @@ for (package in packages) {
 - You can discuss assignments with your classmates, but please [submit your own work]{.alert}
 - [AI is allowed]{.alert} in all assignments and quizzes
 - [Late submissions]{.alert} will be penalised by 10% per day
-- To accommodate any challenges, I will [drop the lowest assignment and quiz grades]{.alert}
 - Additional information will be made available on the [course repository](https://github.com/danilofreire/qtm350)
 :::
 :::
