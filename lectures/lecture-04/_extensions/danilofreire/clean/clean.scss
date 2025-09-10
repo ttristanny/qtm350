@@ -46,8 +46,15 @@ $selection-bg: #2d4563 !default;
   margin-top: 1.25em;
 }
 
-.reveal .slides section code {
-  font-size: 1em;
+// Inline code (smaller)
+.reveal .slides section code:not(pre code) {
+  font-size: 0.95em;
+  color: $accent;
+}
+
+// Code chunks (bigger)
+.reveal .slides section pre code {
+  font-size: 1.2em;
   color: $accent;
 }
 
