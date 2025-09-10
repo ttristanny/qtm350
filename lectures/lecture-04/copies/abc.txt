@@ -281,13 +281,12 @@ ls figures/tim??.jpg
 - The last command to mention is `find`
 - This can be used to locate files and directories based on a variety of criteria; from pattern matching to object properties
 - The basic syntax is `find path(s) -options expression`
-- For example, to find all files in the current directory with the extension `.qmd`, we would do:
+- For example, to find all files in the current directory and in the lecture-03 directory with the extension `.qmd`, we would do:
 
 ```{bash, echo=TRUE}
 # Must use "." to indicate pwd
 find ./ ../lecture-03/ -iname "*.qmd" 
 ```
-- The `iname` option is case-insensitive, while `name` is case-sensitive
 - We can also use `-size` to find files based on their size
   - Use capital `K` for kilobytes, `M` for megabytes, and `G` for gigabytes
 
