@@ -118,12 +118,12 @@ In the data science workflow, there are [two sorts of surprises and cognitive st
 
 - [Infrastructural surprise]{.alert} is when you discover that:
 
-- You can't find what you did before.
-- The analysis code breaks.
-- The report doesn't compile.
-- The collaborator can't run your code.
+- You can't find what you did before
+- The analysis code breaks
+- The report doesn't compile
+- The collaborator can't run your code
 
-- Good project management lets you focus on the [right kind of stress]{.alert}.
+- Good project management lets you focus on the [right kind of stress]{.alert}!
 :::
 :::
 
@@ -133,17 +133,17 @@ In the data science workflow, there are [two sorts of surprises and cognitive st
 :::
 :::
 
-## Keeping Future-you happy
+## Keeping future-you happy
 
 :::{style="margin-top: 30px; font-size: 24px;"}
 :::{.incremental}
-- It’s often tempting to set up a project assuming that you will be the only person working on it, e.g. as homework.
-- [That’s almost never true]{.alert}.
-- Coauthors and collaborators happen to the best of us.
-- Even if not, there's someone else who you always have to keep happy: [Future-you]{.alert}.
-- Future-you is really the one you organise your projects for.
-- Most importantly, they are who will enjoy the fruits of your data science labour, or have to fight back your chaos.
-- So, [be kind to Future-you]{.alert}. Establish a good workflow. You'll thank yourself later.
+- It’s tempting to set up a project assuming that you will be the only person working on it
+- [That’s almost never true]{.alert}
+- Coauthors and collaborators happen to the best of us 😅
+- Even if not, there's someone else who you always have to keep happy: [Future-you]{.alert}
+- Future-you is really the one you organise your projects for
+- Most importantly, they are who will enjoy the fruits of your data science labour, or have to fight back your chaos
+- So, [be kind to future-you]{.alert}. Establish a good workflow. You'll thank yourself later
 
 :::{style="text-align: center;"}
 ![](figures/fox.png){width="40%"}
@@ -156,13 +156,13 @@ In the data science workflow, there are [two sorts of surprises and cognitive st
 :::{style="margin-top: 30px; font-size: 24px;"}
 :::{.columns}
 :::{.column size="50%"}
-You should [always]{.alert} think in terms of projects.
+You should [always]{.alert} think in terms of projects!
 
 A project is a [self-contained unit of data science work]{.alert} that can be
 
 :::{.incremental}
 - Shared (e.g., with collaborators)
-- Recreated by others (including Future-you)
+- Recreated by others (including future-you)
 - Packaged (e.g., as a report)
 - Dumped (exported or archived)
 :::
@@ -197,11 +197,11 @@ For R projects for example:
 :::{style="margin-top: 30px; font-size: 22px;"}
 :::{.columns}
 :::{.column size="50%"}
-- One parent folder contains [everything]{.alert} inside it.
-- You decide what goes in the project folder. The project dictates the structure.
+- One parent folder contains [everything]{.alert} inside it
+- You decide what goes in the project folder. The project dictates the structure
 - Keep [input separate from output]{.alert}. Definitely separate raw from processed data!
-- [All internal paths are relative]{.alert}. Absolute paths are bad paths. Don't feed functions with paths like `"/Users/me/data/thing.csv"`.
-- Those paths will not work outside your computer (or maybe not even there, some days/weeks/months ahead).
+- [All internal paths are relative]{.alert}. Absolute paths are bad paths. Don't feed functions with paths like `"/Users/me/data/thing.csv"`
+- Those paths will not work outside your computer (or maybe not even there, some days/weeks/months ahead)
 :::
 
 :::{.column size="50%"}
@@ -217,17 +217,17 @@ For R projects for example:
 :::{style="margin-top: 30px; font-size: 22px;"}
 :::{.columns}
 :::{.column size="50%"}
-- Scripts are the [glue]{.alert} that holds your project together.
-- They should be [readable]{.alert} and [reproducible]{.alert}.
-- Names should [only include letters and numbers]{.alert} with dashes `-` or underscores `_` to separate words.
+- Scripts are the [glue]{.alert} that holds your project together
+- They should be [readable]{.alert} and [reproducible]{.alert}
+- Names should [only include letters and numbers]{.alert} with dashes `-` or underscores `_` to separate words
 - Use numbering to indicate the order in which files should be run:
   - `00-setup.py`
   - `01-import-data.py`
   - `02-preprocess-data.py`
 
-- Write short, modular scripts. Every script serves a purpose in your pipeline.
-- Put the setup first (e.g., `library()` and `source()`).
-- [Always comment more than you usually do]{.alert}.
+- Write short, modular scripts. Every script serves a purpose in your pipeline
+- Put the setup first (e.g., `library()` and `source()`)
+- [Always comment more than you usually do]{.alert}
 :::
 
 :::{.column size="50%"}
@@ -246,9 +246,9 @@ For R projects for example:
 :::{.columns}
 :::{.column size="50%"}
 :::{.incremental}
-- Version Control is a way to [track your files]{.alert}
+- Version control is a way to [track your files]{.alert}
 - It is usually saved in [a series of snapshots and branches]{.alert}, which you can move back and forth between
-- Version Control allows you to view how project has progressed over time
+- Version control allows you to view how project has progressed over time
 - It allows you to:
   - Distribute your file changes over time
   - Prevent against data loss/damage by creating backup snapshots
@@ -282,7 +282,7 @@ For R projects for example:
 - Wanted to submit a change to someone else's code?
 - Wanted to see how much work is being done, when, and by whom?
 
-[Version control can help with all of these]{.alert}.
+[Version control can help with all of these!]{.alert}
 :::
 
 :::{.column size="50%"}
@@ -300,23 +300,23 @@ For R projects for example:
 :::{.column size="50%"}
 ![](figures/git.png){width="30%"}
 
-- Git is a [distributed version control system]{.alert}.
-- Imagine if your Dropbox and the "Track changes" feature in MS Word had a baby.
+- Git is a [distributed version control system]{.alert}
+- Imagine if your Dropbox and the "Track changes" feature in MS Word had a baby
 - In fact, it's even better than that because [Git is optimised for code]{.alert}
-- There is a learning curve, but it's worth it.
-- Being familiar with [Git is taken for granted]{.alert} when you interact with other data scientists.
-- It is [not the only version control software](https://en.wikipedia.org/wiki/Comparison_of_version-control_software), but certainly the most popular one.
-- According to [StackOverflow's 2022 Developer Survey](https://survey.stackoverflow.co/2022/#version-control-systems), about 94% of developers use Git.
+- There is a learning curve, but it's worth it
+- Being familiar with [Git is taken for granted]{.alert} when you interact with other data scientists
+- It is [not the only version control software](https://en.wikipedia.org/wiki/Comparison_of_version-control_software), but certainly the most popular one
+- According to [StackOverflow's 2021 Developer Survey](https://survey.stackoverflow.co/2021#most-popular-technologies-tools-tech), about 94% of developers use Git. StackOverflow doesn't even include git as an option anymore!
 :::
 
 :::{.column size="50%"}
 ![](figures/github.png){width="45%"}
 
-- [Git and GitHub are distinct things]{.alert}.
-- [GitHub is an online hosting platform]{.alert} that allows you to host your code online.
-- It relies on Git and makes some of its functionality more accessible.
-- Also, it provides many more useful features to collaborate with others. 
-- Just like we don't *need* Rstudio to run R code, we don't *need* GitHub to use Git... But it will make our lives easier.
+- [Git and GitHub are distinct things]{.alert}
+- [GitHub is an online hosting platform]{.alert} that allows you to host your code online
+- It relies on Git and makes some of its functionality more accessible
+- Also, it provides many more useful features to collaborate with others
+- Just like we don't *need* Rstudio to run R code, we don't *need* GitHub to use Git... But it will make our lives easier
 :::
 :::
 :::
@@ -328,10 +328,10 @@ For R projects for example:
 ::: {.column width="50%"}
 **Where does Git come from?**
 
-- Git was created in 2005 by Linux creator [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds).
-- The initial motivation was to have a non-proprietary version control system to manage Linux kernel development.
-- Check out this (quite opinionated) [talk by Linus Torvalds on Git](https://www.youtube.com/watch?v=4XpnKHJAok8) two years after its creation.
-- There are many [Git GUIs](https://en.wikipedia.org/wiki/Comparison_of_Git_GUIs), giving you the option to use git without the shell (often with reduced functionality). Popular choices are the [GitHub Desktop](https://desktop.github.com/), and the [integration with VS Code](https://code.visualstudio.com/docs/editor/versioncontrol).
+- Git was created in 2005 by Linux creator [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds)
+- The initial motivation was to have a non-proprietary version control system to manage Linux kernel development
+- Check out this (quite opinionated) [talk by Linus Torvalds on Git](https://www.youtube.com/watch?v=4XpnKHJAok8) two years after its creation
+- There are many [Git GUIs](https://en.wikipedia.org/wiki/Comparison_of_Git_GUIs), giving you the option to use git without the shell (often with reduced functionality). Popular choices are the [GitHub Desktop](https://desktop.github.com/), and the [integration with VS Code](https://code.visualstudio.com/docs/editor/versioncontrol)
 :::
 
 ::: {.column width="50%"}
@@ -349,17 +349,17 @@ For R projects for example:
 :::{.column size="50%"}
 **Where does GitHub come from?**
 
-- GitHub was created in 2008 and is now owned by Microsoft.
-- GitHub offers various subscription plans and has expanded its services beyond hosting Git-based version control.
-- GitHub is also widely used to document scientific projects, host websites, and more.
-- GitHub is a [social network for developers]{.alert}. It's like Facebook, but for code.
-- [I'm a big fan of GitHub!]{.alert}. [My website](https://danilofreire.github.io/) and, as you know, [this course](https://danilofreire.github.io/qtm350) are hosted on there.
+- GitHub was created in 2008 and is now owned by Microsoft
+- GitHub offers various subscription plans and has expanded its services beyond hosting Git-based version control
+- GitHub is also widely used to document scientific projects, host websites, and more
+- GitHub is a [social network for developers]{.alert}. It's like Facebook, but for code
+- [I'm a big fan of GitHub!]{.alert} [My website](https://danilofreire.github.io/) and, as you know, [this course](https://danilofreire.github.io/qtm350) are hosted on there
 :::
 
 :::{.column size="50%"}
-- [Please create an educational account](https://github.com/education/students) to get free access to GitHub Pro. Use your Emory email address.
-- You will receive a [GitHub Student Developer Pack](https://education.github.com/pack) with many freebies, including [GitHub Copilot](https://copilot.github.com/), which is an AI tool that helps you write code.
-- We will talk about Copilot in a future lecture, but you can start using it now.
+- [Please create an educational account](https://github.com/education/students) to get free access to GitHub Pro. Use your Emory email address
+- You will receive a [GitHub Student Developer Pack](https://education.github.com/pack) with many freebies, including [GitHub Copilot](https://copilot.github.com/), which is an AI tool that helps you write code
+- We will talk about Copilot in a future lecture, but you can start using it now
 
 :::{style="text-align: center;"}
 ![](figures/professorcat.png){width="40%"}
@@ -370,7 +370,7 @@ For R projects for example:
 
 ## Second step: install Git
 
-:::{style="margin-top: 30px; font-size: 24px;"}
+:::{style="margin-top: 30px; font-size: 23px;"}
 Again, Git is an independent piece of software. You need to have it installed on your machine to call it from the command line or VS Code
 
 Chances are that that's already the case. Here's how you can check using the command line:
@@ -385,13 +385,19 @@ And here's how you can check the version:
 git --version
 ```
 
-If you want to install (or update) Git on your Mac/Linux machine, I recommend using [Homebrew](https://brew.sh/), "the missing package manager for macOS (or Linux)":
+If you want to install (or update) Git on your Mac, I recommend using [Homebrew](https://brew.sh/), "the missing package manager for macOS (or Linux)":
 
 ```{verbatim}
 brew install git
 ```
 
-To install/update Git for Windows, check out [happygitwithr.com](https://happygitwithr.com/install-git.html).
+WSL users can install Git using:
+
+```{verbatim}
+sudo apt-get install git
+```
+
+To install/update Git for Windows (not WSL), check out [happygitwithr.com](https://happygitwithr.com/install-git.html)
 :::
 
 ## Third step: introduce yourself to Git
@@ -424,10 +430,10 @@ Check out [these setup instructions](https://swcarpentry.github.io/git-novice/02
 :::{style="margin-top: 30px; font-size: 24px;"}
 :::{.columns}
 :::{.column size="50%"}
-- Repositories, usually called ‘repos’, store the full history and source control of a project.
-- They can either be hosted locally, or on a shared server, such as `GitHub`.
-- Most repositories are stored on `GitHub`, while core contributors make copies of the repository on their machine and update the repository using the `push/pull` system.
-- Any repository stored somewhere other than locally is called a ‘remote repository’.
+- Repositories, usually called [repos](https://en.wikipedia.org/wiki/Repository_(version_control)), store the full history and source control of a project
+- They can either be hosted locally, or on a shared server, such as GitHub
+- Most repositories are stored on GitHub, while core contributors make copies of the repository on their machine and update the repository using the `push/pull` system
+- Any repository stored somewhere other than locally is called a ‘remote repository’
 :::
 
 :::{.column size="50%"}
@@ -440,14 +446,14 @@ Check out [these setup instructions](https://swcarpentry.github.io/git-novice/02
 
 ## {background-image="figures/qtm350-repo.png"}
 
-## Repos vs Directories
+## Repos vs directories
 
 :::{style="margin-top: 30px; font-size: 24px;"}
 :::{.columns}
 :::{.column size="50%"}
-- Repositories are [timelines of the entire project]{.alert}, including all changes made previously.
-- Directories, or ‘working directories’ are projects at their [current state in time]{.alert}.
-- Any local directory interacting with a repository is technically a repository itself, however, it is better to call these directories ‘local repositories’, as they are instances of a remote repository.
+- Repositories are [timelines of the entire project]{.alert}, including all changes made previously
+- Directories, or ‘working directories’ are projects at their [current state in time]{.alert}
+- Any local directory interacting with a repository is technically a repository itself, however, it is better to call these directories ‘local repositories’, as they are instances of a remote repository
 :::
 
 ::: {.column width="50%"}
@@ -458,14 +464,14 @@ Check out [these setup instructions](https://swcarpentry.github.io/git-novice/02
 ::: 
 :::
 
-## Workflow Diagram
+## Workflow diagram
 
 :::{style="margin-top: 30px; font-size: 24px;"}
 :::{.columns}
 :::{.column size="50%"}
 - This diagram shows a little bit about how the basic Git workflow process works
-- The staging area is the bundle of all the modifications to the project that are going to be committed.
-- A ‘commit’ is similar to taking a snapshot of the current state of the project, then storing it on a timeline.
+- The staging area is the bundle of all the modifications to the project that are going to be committed
+- A ‘commit’ is similar to taking a snapshot of the current state of the project, then storing it on a timeline
 :::
 
 ::: {.column width="50%"}
@@ -481,16 +487,16 @@ Check out [these setup instructions](https://swcarpentry.github.io/git-novice/02
 :::{style="margin-top: 30px; font-size: 22px;"}
 :::{.columns}
 :::{.column size="50%"}
-- `git init`: Initialises a new Git repository.
-- `git clone`: Copies an existing Git repository.
-- `git add`: Adds changes to the staging area.
-- `git commit`: Commits changes to the repository.
-- `git push`: Pushes changes to a remote repository.
-- `git pull`: Pulls changes from a remote repository.
-- `git status`: Shows the status of the working directory.
-- `git log`: Shows the commit history.
-- `git branch`: Shows the branches in the repository.
-- `git checkout`: Switches branches.
+- `git init`: Initialises a new Git repository
+- `git clone`: Copies an existing repository
+- `git add`: Adds changes to the staging area
+- `git commit`: Commits changes 
+- `git push`: Pushes changes
+- `git pull`: Pulls changes
+- `git status`: Shows the status of the working directory
+- `git log`: Shows the commit history
+- `git branch`: Shows the branches in the repository
+- `git checkout`: Switches branches
 
 [Git documentation](https://git-scm.com/doc)
 :::
@@ -509,9 +515,9 @@ Check out [these setup instructions](https://swcarpentry.github.io/git-novice/02
 
 :::{style="margin-top: 30px; font-size: 24px;"}
 - Let's create a new repository on GitHub from scratch!
-- We will create it in our local machine and push it to GitHub.
-- Next class, I will show you how to clone it and make changes.
-- We will also learn how to create branches, merge them, and resolve conflicts.
+- We will create it in our local machine and push it to GitHub
+- Next class, I will show you how to clone it and make changes
+- We will also learn how to create branches, merge them, and resolve conflicts
 
 :::{.fragment .fade-in}
 :::{style="text-align: center; font-size: 50px;"}
@@ -528,7 +534,7 @@ Check out [these setup instructions](https://swcarpentry.github.io/git-novice/02
 1. I will create a new folder/directory in my computer: `my_project` 
 2. Open the `bash/zsh` Terminal and go to the `my_project` directory
 3. I will copy the `my_project` directory path into a text document 
-4. I will try to add this folder to the `staging area`.
+4. I will try to add this folder to the `staging area`
 
 ```{verbatim}
 mkdir my-project
@@ -559,13 +565,13 @@ git init
 :::{style="margin-top: 30px; font-size: 24px;"}
 :::{.columns}
 :::{.column size="50%"}
-1. Check the `staging area` status.
+1. Check the `staging area` status
 
 ```{verbatim}
 git status
 ```
 
-2. Let's add a `01-cleaning-data.py` file to the `staging area`. Then, check its status.
+2. Let's add a `01-cleaning-data.py` file to the `staging area`. Then, check its status
 
 ```{verbatim}
 touch 01-cleaning-data.py
@@ -587,7 +593,7 @@ git status
 :::{style="margin-top: 30px; font-size: 24px;"}
 :::{.columns}
 :::{.column size="50%"}
-3. Now let's create more files and add them to the `staging area`.
+3. Now let's create more files and add them to the `staging area`
 
 ```{verbatim}
 touch 02-exploratory-data-analysis.py
@@ -647,7 +653,7 @@ git commit -m "initial commit"
 :::
 :::
 
-## First Commit
+## First commit
 
 :::{style="margin-top: 30px; font-size: 24px;"}
 :::{.columns}
@@ -673,7 +679,7 @@ git log
 :::
 :::
 
-## Git Checkout
+## Git checkout
 
 :::{style="margin-top: 30px; font-size: 23px;"}
 :::{.columns}
@@ -702,7 +708,7 @@ git log  # lets check
 ::: 
 :::
 
-## Hands on! Git Checkout
+## Hands on! Git checkout
 
 :::{style="margin-top: 30px; font-size: 24px;"}
 :::{.columns}
@@ -726,7 +732,7 @@ git checkout 470636f38e409f4f322c48183e19633ebb550625
 ::: 
 :::
 
-## Git Checkout
+## Git checkout
 
 :::{style="margin-top: 30px; font-size: 24px;"}
 :::{.columns}
