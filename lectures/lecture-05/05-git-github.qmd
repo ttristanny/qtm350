@@ -54,16 +54,19 @@ editor:
 :::{.column size="50%"}
 - Regular expressions are useful to search for patterns in text
 - They are used in many programming languages and tools, and you can use them in the command line with `grep`
-- The basic syntax includes:
-  - `.`: any character
-  - `^`: start of a line
-  - `$`: end of a line
-  - `[]`: a set of characters
-  - `*`: zero or more of the preceding character
-  - `+`: one or more of the preceding character
-  - `?`: zero or one of the preceding character
-  - `|`: or
-  - `()`: grouping
+- The basic syntax is summarised in the table below:
+
+| Symbol | Name               | Description                                      | Example              | Matches           |
+| :----: | :----------------- | :----------------------------------------------- | :------------------- | :---------------- |
+|   `.`  | Wildcard           | Any single character                             | `d.g`                | `dog`, `dig`, `d@g` |
+|   `^`  | Caret              | Start of a line                                  | `^Hello`             | `Hello world`     |
+|   `$`  | Dollar             | End of a line                                    | `end$`               | `This is the end` |
+|  `[]`  | Character set      | Any one of the characters inside the brackets    | `[aeiou]`            | `a`, `e`, `i`, `o`, `u` |
+|   `*`  | Asterisk           | Zero or more of the preceding character          | `ab*c`               | `ac`, `abc`, `abbc` |
+|   `+`  | Plus               | One or more of the preceding character           | `ab+c`               | `abc`, `abbc`     |
+|   `?`  | Question mark      | Zero or one of the preceding character           | `colou?r`            | `color`, `colour` |
+|   `|`  | Pipe               | Logical OR (alternation)                         | `cat\|dog`           | `cat`, `dog`      |
+|  `()`  | Parentheses        | Grouping characters to apply operations to the group | `(ha)+`          | `ha`, `haha`, `hahaha` |
 :::
 
 :::{.column size="50%"}
@@ -123,7 +126,7 @@ In the data science workflow, there are [two sorts of surprises and cognitive st
 - The report doesn't compile
 - The collaborator can't run your code
 
-- Good project management lets you focus on the [right kind of stress]{.alert}!
+- Good project management lets you focus on the [right kind of stress!]{.alert}
 :::
 :::
 
@@ -143,7 +146,7 @@ In the data science workflow, there are [two sorts of surprises and cognitive st
 - Even if not, there's someone else who you always have to keep happy: [Future-you]{.alert}
 - Future-you is really the one you organise your projects for
 - Most importantly, they are who will enjoy the fruits of your data science labour, or have to fight back your chaos
-- So, [be kind to future-you]{.alert}. Establish a good workflow. You'll thank yourself later
+- So, [be kind to future-you]{.alert}. Establish a good workflow. You'll thank yourself later 😊
 
 :::{style="text-align: center;"}
 ![](figures/fox.png){width="40%"}
@@ -191,7 +194,7 @@ For R projects for example:
 :::
 :::
 
-## Project setup: Directories
+## Project setup: directories
 ### Recommendations
 
 :::{style="margin-top: 30px; font-size: 22px;"}
@@ -212,7 +215,7 @@ For R projects for example:
 :::
 :::
 
-## Project setup: Scripts
+## Project setup: scripts
 
 :::{style="margin-top: 30px; font-size: 22px;"}
 :::{.columns}
@@ -295,7 +298,7 @@ For R projects for example:
 
 ## What is Git?
 
-:::{style="margin-top: 30px; font-size: 22px;"}
+:::{style="margin-top: 30px; font-size: 21px;"}
 :::{.columns}
 :::{.column size="50%"}
 ![](figures/git.png){width="30%"}
@@ -330,7 +333,7 @@ For R projects for example:
 
 - Git was created in 2005 by Linux creator [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds)
 - The initial motivation was to have a non-proprietary version control system to manage Linux kernel development
-- Check out this (quite opinionated) [talk by Linus Torvalds on Git](https://www.youtube.com/watch?v=4XpnKHJAok8) two years after its creation
+- Check out this (quite opinionated) [talk on Git by Linus Torvalds](https://www.youtube.com/watch?v=4XpnKHJAok8) from 2007, two years after its creation
 - There are many [Git GUIs](https://en.wikipedia.org/wiki/Comparison_of_Git_GUIs), giving you the option to use git without the shell (often with reduced functionality). Popular choices are the [GitHub Desktop](https://desktop.github.com/), and the [integration with VS Code](https://code.visualstudio.com/docs/editor/versioncontrol)
 :::
 
@@ -470,8 +473,11 @@ Check out [these setup instructions](https://swcarpentry.github.io/git-novice/02
 :::{.columns}
 :::{.column size="50%"}
 - This diagram shows a little bit about how the basic Git workflow process works
-- The staging area is the bundle of all the modifications to the project that are going to be committed
-- A ‘commit’ is similar to taking a snapshot of the current state of the project, then storing it on a timeline
+- The [working directory]{.alert} is the current state of the project
+- The [staging area]{.alert} is the bundle of all the modifications to the project that are going to be committed
+- A [commit]{.alert} is similar to taking a snapshot of the current state of the project, then storing it on a timeline
+- The [local repository]{.alert} is the full history of the project stored on your machine
+- The [remote repository]{.alert} is the full history of the project stored on a server, usually GitHub
 :::
 
 ::: {.column width="50%"}
@@ -487,16 +493,16 @@ Check out [these setup instructions](https://swcarpentry.github.io/git-novice/02
 :::{style="margin-top: 30px; font-size: 22px;"}
 :::{.columns}
 :::{.column size="50%"}
-- `git init`: Initialises a new Git repository
-- `git clone`: Copies an existing repository
-- `git add`: Adds changes to the staging area
-- `git commit`: Commits changes 
-- `git push`: Pushes changes
-- `git pull`: Pulls changes
-- `git status`: Shows the status of the working directory
-- `git log`: Shows the commit history
-- `git branch`: Shows the branches in the repository
-- `git checkout`: Switches branches
+- `git init`: initialises a new Git repository
+- `git clone`: copies an existing repository
+- `git add`: adds changes to the staging area
+- `git commit`: commits changes 
+- `git push`: pushes changes
+- `git pull`: pulls changes
+- `git status`: shows the status of the working directory
+- `git log`: shows the commit history
+- `git branch`: shows the branches in the repository
+- `git checkout`: switches branches
 
 [Git documentation](https://git-scm.com/doc)
 :::
@@ -689,14 +695,14 @@ git log
 ```{verbatim}
 touch 04-new-visualisation.py # new file
 touch 05-comments.py # new file
-git add . # add files to the staging area
-git commit -m "adding files" # new commit
+git add . 
+git commit -m "adding files" 
 echo "Hello you" >> 05-comments.py # edit file
-git add . # add files to the staging area
-git commit -m "editing 05-comments.py". # new commit
-rm -f 05-comments.py # delete file
-git commit -a -m "deleting 05-comments.py" # new commit
-git log  # lets check
+git add . 
+git commit -m "editing 05-comments.py". 
+rm -f 05-comments.py 
+git commit -am "deleting 05-comments.py" 
+git log 
 ```
 :::
 
@@ -755,7 +761,7 @@ git log
 
 ## Next steps 🙂
 
-:::{style="margin-top: 30px; font-size: 24px;"}
+:::{style="margin-top: 30px; font-size: 28px;"}
 - [Phew!]{.alert} That was a lot of work! 😅
 - Next class we will see how we can create branches and merge them.
 - We will also learn how to resolve conflicts and push our changes to GitHub.
@@ -785,7 +791,5 @@ Today we learned about:
 :::
 :::
 :::
-
-# Questions? 🤓 {background-color="#2d4563"}
 
 # Thank you very much and see you soon! 😊🙏🏻 {background-color="#2d4563"}
