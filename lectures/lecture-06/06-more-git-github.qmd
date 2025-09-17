@@ -63,7 +63,6 @@ Today we will cover
 - Syncing forked repositories on GitHub
 - How to create `issues` and `pull requests` on GitHub
 - Other cool GitHub features, such as Gists, Pages, Actions, and CLI
-- If time allows, we will also see what GitHub Copilot does
 :::
 
 :::{.column size="50%"}
