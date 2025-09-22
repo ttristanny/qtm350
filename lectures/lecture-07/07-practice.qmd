@@ -56,11 +56,11 @@ Today we will cover:
 
 - Understanding changes with `git diff`
 - Amending commits with `git commit --amend`
-- Cherry-picking commits with `git cherry-pick`
+- Cherry-picking commits with, well, `git cherry-pick` 😅
 - Understanding `git rebase` and its uses
 - Installing and setting up GitHub CLI
 - GitHub CLI repository management
-- [Mock-up quiz and practical examples!]{.alert}
+- [Mock-up quiz!]{.alert}
 :::
 
 :::{.column width="50%"}
@@ -76,7 +76,7 @@ Today we will cover:
 
 ## What is `git diff`?
 
-:::{style="margin-top: 30px; font-size: 24px;"}
+:::{style="margin-top: 30px; font-size: 22px;"}
 :::{.columns}
 :::{.column width="50%"}
 - `git diff` shows you [what has changed]{.alert} between commits, branches, or your working directory
@@ -97,16 +97,16 @@ git diff
 ![](figures/diff-01.png){width="80%"}
 :::
 
-- **`diff --git a/file b/file`** shows Git is comparing two versions of the same file (a = original, b = modified)
-- **`--- a/file` and `+++ b/file`** indicate the original file (before) and new file (after) being compared
-- **`@@ -0,0 +1 @@`** shows the line numbers affected, with `+` lines indicating additions and `-` lines indicating deletions
+- `diff --git a/file b/file` shows Git is comparing two versions of the same file (`a` = original, `b` = modified)
+- `--- a/file` and `+++ b/file` indicate the original file (before) and new file (after) being compared
+- `@@ -0,0 +1 @@` shows the line numbers affected, with `+` lines indicating additions and `-` lines indicating deletions. `-0,0` means that the original file had no lines, and `+1` means one line was added
 :::
 :::
 :::
 
 ## Common `git diff` commands
 
-:::{style="margin-top: 30px; font-size: 22px;"}
+:::{style="margin-top: 30px; font-size: 18px;"}
 :::{.columns}
 :::{.column width="50%"}
 **Basic diff commands:**
@@ -131,6 +131,8 @@ git diff
 :::{style="margin-top: -20px; text-align: center;"}
 ![](figures/diff-commits.png){width="100%"}
 :::
+
+- `@@ -1,4 +1,4 @@` means that in the original file, lines 1 to 4 were present, and in the new file, lines 1 to 4 are also present, but with some changes
 :::
 :::
 :::
@@ -140,20 +142,14 @@ git diff
 ## What is `git commit --amend`?
 
 :::{style="margin-top: 30px; font-size: 24px;"}
-:::{.columns}
-:::{.column width="50%"}
 - `git commit --amend` allows you to [modify your last commit]{.alert}
 - Useful when you forgot to add files or made a typo in the commit message
 - Can add staged changes to the previous commit
 - Can also change the commit message
 - [Use with caution!]{.alert} Only amend commits that haven't been pushed yet
-:::
 
-:::{.column width="50%"}
 :::{style="text-align: center; margin-top: -20px;"}
-![](figures/amend-message.png){width="100%"}
-:::
-:::
+![](figures/amend-message.png){width="60%"}
 :::
 :::
 
@@ -208,6 +204,7 @@ git commit --amend -m "Updated commit message"
 :::
 
 :::{.column width="50%"}
+:::{style="margin-top: -20px;"}
 **Undo last commit but keep changes:**
 
 ```bash
@@ -220,6 +217,7 @@ git reset --hard HEAD~1
 ```
 
 - You can undo as many commits as needed by changing the number after `HEAD~`, such as `HEAD~2` for the last two commits
+:::
 :::
 :::
 :::
