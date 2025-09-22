@@ -63,7 +63,6 @@ Today we will cover
 - Syncing forked repositories on GitHub
 - How to create `issues` and `pull requests` on GitHub
 - Other cool GitHub features, such as Gists, Pages, Actions, and CLI
-- If time allows, we will also see what GitHub Copilot does
 :::
 
 :::{.column size="50%"}
@@ -390,6 +389,60 @@ Today we will cover
 ![](figures/merge-branch.png){width="100%"}
 
 More about branches [here](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell).
+:::
+:::
+:::
+:::
+
+## Going back to a specific commit
+
+:::{style="margin-top: 30px; font-size: 21px;"}
+:::{.colunms}
+:::{.column size="50%"}
+- Sometimes you need to revert to a previous state of your project
+- First, view your commit history: `git log --oneline` (shows abbreviated hashes)
+- To temporarily checkout a specific commit and make it your working directory:
+  - `git checkout <commit-hash>`
+  - This puts you in detached HEAD state (changes won't be on a branch)
+- To create a new branch from that commit: `git checkout -b new-branch <commit-hash>`
+- To permanently reset your current branch to that commit (rewrites history):
+  - `git reset --hard <commit-hash>` 
+  - [Use with caution! This erases commits between current HEAD and target]{.alert}
+- After checking out a commit, use `git status` to confirm your state
+:::
+
+:::{.column size="50%"}
+- Commit hashes look like: `a1b2c3d` or full `1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o`
+- Always copy-paste commit hashes to avoid typos
+- To return to the latest commit on your branch: `git checkout branch-name`
+- Git keeps all history, so you can always recover lost commits later
+- For collaborative projects, prefer branching over resetting to avoid disrupting others
+
+:::{style="text-align: center;"}
+![](figures/git-checkout.png){width="100%"}
+:::
+:::
+:::
+:::
+
+## Going back to a specific commit
+
+:::{style="margin-top: 30px; font-size: 21px;"}
+:::{.colunms}
+:::{.column size="50%"}
+- It is a good idea to create a new branch when checking out an old commit
+- This way, you can make changes without affecting the main branch
+- We do this with `git switch -c new-branch <commit-hash>` (Git 2.23+)
+- If you want to discard changes and go back to the latest commit on your branch, use `git switch branch-name`
+- To delete a branch, use `git branch -d branch-name`
+- If you are sure you don't want to use your `main` branch anymore, you can delete it with `git branch -D main` (`-D` forces deletion)
+- Then rename your current branch to `main` with `git branch -m main`
+- Finally, commit and push the new `main` branch to GitHub with `git push -u origin main`
+:::
+
+:::{.column size="50%"}
+:::{style="text-align: center;"}
+![](figures/git-checkout2.png){width="100%"}
 :::
 :::
 :::
